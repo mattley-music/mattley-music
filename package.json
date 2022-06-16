@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "The website for mattley music.",
     "main": "index.js",
+    "type": "module",
     "scripts": {
         "postinstall": "cd client && npm i",
         "build": "cd client && npm run build",

@@ -2,8 +2,8 @@
  * Deploy to Github Pages like a pro with Github Actions
  * https://dev.to/rolanddoda/deploy-to-github-pages-like-a-pro-with-github-actions-4hdg
  */
-const execa = import("execa");
-const fs = import("fs");
+import { execa } from "execa";
+import fs from "fs";
 
 (async () => {
     try {
