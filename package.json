@@ -1,0 +1,25 @@
+{
+    "name": "mattley-music",
+    "version": "1.0.0",
+    "description": "The website for mattley music.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Timbogen/mattley-music.git"
+    },
+    "author": "",
+    "bugs": {
+        "url": "https://github.com/Timbogen/mattley-music/issues"
+    },
+    "engines": {
+        "node": ">= 16"
+    },
+    "homepage": "https://github.com/Timbogen/mattley-music#readme",
+    "dependencies": {
+        "execa": "^6.1.0",
+        "prettier": "^2.7.1"
+    }
+}
