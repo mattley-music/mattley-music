@@ -4,6 +4,9 @@
     "description": "The website for mattley music.",
     "main": "index.js",
     "scripts": {
+        "postinstall": "cd client && npm i",
+        "build": "cd client && npm run build",
+        "deploy": "node scripts/deploy.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
