@@ -2,8 +2,8 @@
  * Deploy to Github Pages like a pro with Github Actions
  * https://dev.to/rolanddoda/deploy-to-github-pages-like-a-pro-with-github-actions-4hdg
  */
-const execa = require("execa");
-const fs = require("fs");
+const execa = import("execa");
+const fs = import("fs");
 
 (async () => {
     try {
@@ -13,7 +13,7 @@ const fs = require("fs");
         const folderName = fs.existsSync("dist") ? "dist" : "build";
 
         // Add CNAME file
-        fs.writeFile(`${folderName}/CNAME`, "weichwarenprojekt.de", async () => {
+        fs.writeFile(`${folderName}/CNAME`, "timbogen.github.io/mattley-music/", async () => {
             await execa("git", ["--work-tree", folderName, "add", "--all"]);
             await execa("git", ["--work-tree", folderName, "commit", "-m", "gh-pages"]);
             console.log("Pushing to gh-pages...");
