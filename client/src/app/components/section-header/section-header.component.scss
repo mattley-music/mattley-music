@@ -1,0 +1,46 @@
+@import "vars";
+
+.section-header {
+    height: 100%;
+    width: 1px;
+    display: flex;
+    flex-direction: column;
+    margin-right: $spacing-32;
+
+    h4 {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        margin-left: -6px;
+        margin-top: $spacing-4;
+        margin-bottom: $spacing-8;
+    }
+
+    .line {
+        flex: 1 1 auto;
+        width: 1px;
+    }
+}
+
+.section-header-purple {
+    h1 {
+        color: $purple;
+    }
+
+    .line {
+        background: $black;
+    }
+}
+
+.section-header-white {
+    h1 {
+        color: $white;
+    }
+
+    h4 {
+        color: $white;
+    }
+
+    .line {
+        background: $white;
+    }
+}

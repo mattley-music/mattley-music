@@ -1,3 +1,4 @@
+@import "../assets/font/poppins";
 @import "vars";
 
 /**
@@ -6,7 +7,7 @@
  *
  */
 html {
-    overflow-y: scroll;
+    overflow: hidden;
 }
 
 html,
@@ -21,8 +22,22 @@ body {
     box-sizing: inherit;
     color: $font-color;
     font-size: $text;
-    font-family: "Fira Sans", normal, sans-serif;
+    font-family: "Poppins", normal, sans-serif;
     margin: 0;
     padding: 0;
     font-weight: normal;
+}
+
+h1 {
+    font-size: $h1;
+    font-weight: 800;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+h4 {
+    font-size: $h4;
+    font-weight: 500;
+    text-transform: uppercase;
+    white-space: nowrap;
 }

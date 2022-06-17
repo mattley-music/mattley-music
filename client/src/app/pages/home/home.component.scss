@@ -1,0 +1,56 @@
+@import "vars";
+
+:host {
+    display: block;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+section {
+    padding: $spacing-64;
+    width: 100vw;
+    height: 100vh;
+}
+
+.intro {
+    position: relative;
+
+    .logo {
+        height: 4rem;
+    }
+
+    .background {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        object-fit: cover;
+    }
+}
+
+.about {
+    display: flex;
+}
+
+.youtube {
+    background: $purple;
+    display: flex;
+
+    .link {
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8rem $spacing-64 $spacing-64;
+
+
+        iframe {
+            border: 1px solid $white;
+            height: 100%;
+            flex: 1 1 auto;
+        }
+    }
+}
