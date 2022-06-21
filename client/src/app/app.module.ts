@@ -3,14 +3,16 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./pages/home/home.component";
-import { SectionHeaderComponent } from "./components/section-header/section-header.component";
+import { SectionHeaderComponent } from "./pages/home/components/section-header/section-header.component";
 import { TranslateLoader, TranslateModule, TranslateService } from "@ngx-translate/core";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { LOCATION_INITIALIZED, LocationStrategy } from "@angular/common";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { AboutComponent } from "./pages/home/components/about/about.component";
+import { AboutInfoComponent } from "./pages/home/components/about-info/about-info.component";
 
 @NgModule({
-    declarations: [AppComponent, HomeComponent, SectionHeaderComponent],
+    declarations: [AppComponent, HomeComponent, SectionHeaderComponent, AboutComponent, AboutInfoComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,

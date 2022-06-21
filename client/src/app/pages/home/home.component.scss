@@ -13,6 +13,14 @@ section {
     height: 100vh;
 }
 
+.section-content {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: $spacing-128 $spacing-64 $spacing-64 $spacing-128;
+}
+
 .intro {
     position: relative;
 
@@ -39,18 +47,9 @@ section {
     background: $purple;
     display: flex;
 
-    .link {
-        flex: 1 1 auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 8rem $spacing-64 $spacing-64;
-
-
         iframe {
             border: 1px solid $white;
             height: 100%;
             flex: 1 1 auto;
-        }
     }
 }
