@@ -55,6 +55,10 @@ section {
     }
 }
 
+.gallery {
+    background: $blue;
+}
+
 @media only screen and (max-width: $width-1) {
     section {
         padding: $spacing-48;

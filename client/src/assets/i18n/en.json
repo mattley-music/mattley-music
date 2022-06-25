@@ -8,6 +8,9 @@
         },
         "clothes": {
             "title": "Clothes"
+        },
+        "gallery": {
+            "title": "Gallery"
         }
     }
 }

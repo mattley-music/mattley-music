@@ -23,16 +23,13 @@
     .line {
         flex: 1 1 auto;
         width: 1px;
+        background: $black;
     }
 }
 
 .section-header-purple {
     h1 {
         color: $purple;
-    }
-
-    .line {
-        background: $black;
     }
 }
 
@@ -47,6 +44,12 @@
 
     .line {
         background: $white;
+    }
+}
+
+.section-header-blue {
+    h1 {
+        color: $blue;
     }
 }
 

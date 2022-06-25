@@ -8,6 +8,9 @@
         },
         "clothes": {
             "title": "Kleidung"
+        },
+        "gallery": {
+            "title": "Gallerie"
         }
     }
 }

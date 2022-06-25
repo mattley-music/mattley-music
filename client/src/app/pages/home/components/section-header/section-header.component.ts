@@ -13,5 +13,5 @@ export class SectionHeaderComponent {
     /**
      * The color of the title
      */
-    @Input() color: "white" | "purple" = "purple";
+    @Input() color: "white" | "blue" | "purple" = "purple";
 }
