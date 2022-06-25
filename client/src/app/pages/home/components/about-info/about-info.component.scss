@@ -2,6 +2,7 @@
 
 :host {
     flex: 1 1 auto;
+    position: relative;
 }
 
 .info {
@@ -105,5 +106,25 @@
 
     &.bottom {
         align-self: flex-start;
+    }
+}
+
+@media only screen and (max-width: $width-1) {
+    .line-mid {
+        width: $spacing-64 !important;
+        height: $spacing-64 !important;
+    }
+
+    .line-end {
+        position: absolute;
+        bottom: 100%;
+        height: 100vh;
+        width: 1px;
+        right: 0;
+
+        &.right {
+            right: unset;
+            left: 0;
+        }
     }
 }

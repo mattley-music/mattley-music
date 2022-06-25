@@ -14,6 +14,12 @@
         margin-bottom: $spacing-8;
     }
 
+    .tail {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+    }
+
     .line {
         flex: 1 1 auto;
         width: 1px;
@@ -41,5 +47,31 @@
 
     .line {
         background: $white;
+    }
+}
+
+@media only screen and (max-width: $width-2) {
+    .section-header {
+        height: auto;
+        width: 100%;
+
+        h4 {
+            writing-mode: unset;
+            transform: none;
+            margin-top: $spacing-8;
+            margin-bottom: 0;
+            align-self: flex-end;
+        }
+
+        .tail {
+            align-items: center;
+            flex: 0 0 auto;
+            flex-direction: column-reverse;
+        }
+
+        .line {
+            width: 100%;
+            height: 1px;
+        }
     }
 }

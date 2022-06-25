@@ -48,3 +48,21 @@ h4 {
     text-transform: uppercase;
     white-space: nowrap;
 }
+
+@media only screen and (max-width: $width-1 + 200px) {
+    html {
+        font-size: 90%;
+    }
+}
+
+@media only screen and (max-width: $width-2 + 200px) {
+    html {
+        font-size: 80%;
+    }
+}
+
+@media only screen and (max-width: $width-3 + 200px) {
+    html {
+        font-size: 70%;
+    }
+}
