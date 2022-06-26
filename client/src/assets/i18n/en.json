@@ -4,13 +4,16 @@
             "title": "About Me"
         },
         "youtube": {
-            "title": "In the mix"
+            "title": "In The Mix"
         },
         "clothes": {
             "title": "Clothes"
         },
         "gallery": {
             "title": "Gallery"
+        },
+        "others": {
+            "title": "Others"
         }
     }
 }

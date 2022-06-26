@@ -1,16 +1,19 @@
 {
     "home": {
         "about": {
-            "title": "Über mich"
+            "title": "Über Mich"
         },
         "youtube": {
-            "title": "In the mix"
+            "title": "In The Mix"
         },
         "clothes": {
             "title": "Kleidung"
         },
         "gallery": {
             "title": "Gallerie"
+        },
+        "others": {
+            "title": "Sonstiges"
         }
     }
 }

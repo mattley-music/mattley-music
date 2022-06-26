@@ -1,11 +1,19 @@
 <!-- The intro -->
-<section class="intro">
+<section id="intro">
     <img class="background" src="assets/img/intro.jpg" alt="Intro" />
-    <img class="logo" src="assets/img/logo.svg" alt="Logo" />
+    <div class="row">
+        <img class="logo" src="assets/img/logo.svg" alt="Logo" />
+        <div class="menu">
+            <a (click)="scrollTo('about')">{{"home.about.title" | translate}}</a>
+            <a (click)="scrollTo('youtube')">{{"home.youtube.title" | translate}}</a>
+            <a (click)="scrollTo('clothes')">{{"home.clothes.title" | translate}}</a>
+        </div>
+    </div>
+    <img id="buy" class="buy" src="assets/img/buy.svg" alt="Buy Clothes" />
 </section>
 
 <!-- About me -->
-<section class="about">
+<section id="about">
     <app-section-header text="home.about.title"></app-section-header>
     <div class="section-content">
         <app-about></app-about>
@@ -13,7 +21,7 @@
 </section>
 
 <!-- Youtube -->
-<section class="youtube">
+<section id="youtube">
     <app-section-header text="home.youtube.title" color="white"></app-section-header>
     <div class="section-content">
         <iframe src="https://www.youtube.com/embed/ixrB924BGvc"> </iframe>
@@ -21,11 +29,16 @@
 </section>
 
 <!-- Clothes -->
-<section class="clothes">
+<section id="clothes">
     <app-section-header text="home.clothes.title" color="blue"></app-section-header>
 </section>
 
 <!-- Gallery -->
-<section class="gallery">
+<section id="gallery">
     <app-section-header text="home.gallery.title" color="white"></app-section-header>
+</section>
+
+<!-- Clothes -->
+<section id="others">
+    <app-section-header text="home.others.title" color="purple"></app-section-header>
 </section>
