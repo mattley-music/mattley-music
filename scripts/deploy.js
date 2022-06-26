@@ -13,7 +13,7 @@ import fs from "fs";
         const folderName = fs.existsSync("dist") ? "dist" : "build";
 
         // Add CNAME file
-        fs.writeFile(`${folderName}/CNAME`, "timbogen.github.io/mattley-music/", async () => {
+        fs.writeFile(`${folderName}/CNAME`, "mattleymusic.de", async () => {
             await execa("git", ["--work-tree", folderName, "add", "--all"]);
             await execa("git", ["--work-tree", folderName, "commit", "-m", "gh-pages"]);
             console.log("Pushing to gh-pages...");
