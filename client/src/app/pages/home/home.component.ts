@@ -1,17 +1,12 @@
-import { Component, ElementRef, OnDestroy, OnInit } from "@angular/core";
+import { Component, ElementRef, OnDestroy } from "@angular/core";
 import createScrollSnap from "scroll-snap";
-import gsap from "gsap";
 
 @Component({
     selector: "app-home",
     templateUrl: "./home.component.html",
     styleUrls: ["./home.component.scss"],
 })
-export class HomeComponent implements OnInit, OnDestroy {
-    /**
-     * The timeline for the buy sign
-     */
-    private buyTimeline?: gsap.core.Timeline;
+export class HomeComponent implements OnDestroy {
     /**
      * The reference to the scroll snap
      */
@@ -28,26 +23,6 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.updateScrollSnapping();
         this.mediaQuery.addEventListener("change", this.updateScrollSnapping);
     }
-
-    /**
-     * Start the animation of the buy sign
-     */
-    public ngOnInit(): void {
-        this.buyTimeline = gsap.timeline({
-            repeat: -1,
-            repeatDelay: 2,
-        });
-        this.buyTimeline.to("#buy", {
-            rotate: "180deg",
-            duration: 4,
-            delay: 2,
-        });
-        this.buyTimeline.to("#buy", {
-            rotate: "360deg",
-            duration: 4,
-        });
-    }
-
     /**
      * Remove the media query
      */

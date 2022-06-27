@@ -62,7 +62,7 @@ section {
         object-fit: cover;
     }
 
-    .buy {
+    .news-spinner {
         position: absolute;
         width: 14rem;
         height: 14rem;
@@ -101,7 +101,7 @@ section {
     }
 
     #intro {
-        .buy {
+        .news-spinner {
             right: $spacing-48;
         }
     }
@@ -125,7 +125,7 @@ section {
     }
 
     #intro {
-        .buy {
+        .news-spinner {
             right: $spacing-32;
             bottom: $spacing-32;
         }
@@ -155,9 +155,9 @@ section {
             display: none;
         }
 
-        .buy {
-            width: 8rem;
-            height: 8rem;
+        .news-spinner {
+            width: 12rem;
+            height: 12rem;
             right: $spacing-24;
             bottom: $spacing-24;
         }

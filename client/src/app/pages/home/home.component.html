@@ -4,12 +4,12 @@
     <div class="row">
         <img class="logo" src="assets/img/logo.svg" alt="Logo" />
         <div class="menu">
-            <a (click)="scrollTo('about')">{{"home.about.title" | translate}}</a>
-            <a (click)="scrollTo('youtube')">{{"home.youtube.title" | translate}}</a>
-            <a (click)="scrollTo('clothes')">{{"home.clothes.title" | translate}}</a>
+            <a (click)="scrollTo('about')">{{ "home.about.title" | translate }}</a>
+            <a (click)="scrollTo('youtube')">{{ "home.youtube.title" | translate }}</a>
+            <a (click)="scrollTo('clothes')">{{ "home.clothes.title" | translate }}</a>
         </div>
     </div>
-    <img id="buy" class="buy" src="assets/img/buy.svg" alt="Buy Clothes" />
+    <app-news-spinner class="news-spinner"></app-news-spinner>
 </section>
 
 <!-- About me -->

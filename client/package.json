@@ -20,6 +20,8 @@
         "@angular/router": "~13.3.0",
         "@ngx-translate/core": "^14.0.0",
         "@ngx-translate/http-loader": "^7.0.0",
+        "dayjs": "^1.11.3",
+        "g-sheets-api": "^2.1.2",
         "gsap": "^3.10.4",
         "rxjs": "~7.5.0",
         "scroll-snap": "^4.0.3",

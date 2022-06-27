@@ -1,0 +1,42 @@
+<svg id="news-spinner" viewBox="0 0 250 250">
+    <circle fill="black" r="125" cx="125" cy="125" />
+    <circle fill="white" r="70" cx="125" cy="125" />
+    <path id="textCircle" fill="none" d="M 125, 125 m -90, 0 a 90,90 0 1,1 180,0 a 90,90 0 1,1 -180,0" />
+    <text fill="white">
+        <textPath startOffset="0%" text-anchor="middle" xlink:href="#textCircle">+++</textPath>
+        <textPath startOffset="100%" text-anchor="middle" xlink:href="#textCircle">+++</textPath>
+        <textPath
+            *ngIf="!this.eventService.nextEvent"
+            startOffset="25%"
+            text-anchor="middle"
+            xlink:href="#textCircle"
+        >
+            {{ "home.intro.nothingUpcoming" | translate }}
+        </textPath>
+        <textPath
+            *ngIf="!this.eventService.nextEvent"
+            startOffset="75%"
+            text-anchor="middle"
+            xlink:href="#textCircle"
+        >
+            {{ "home.intro.nothingUpcoming" | translate }}
+        </textPath>
+        <textPath
+            *ngIf="this.eventService.nextEvent as event"
+            startOffset="25%"
+            text-anchor="middle"
+            xlink:href="#textCircle"
+        >
+            {{ event.date.valueOf() | date: "shortDate" }} {{ event.name }}
+        </textPath>
+        <textPath
+            *ngIf="this.eventService.nextEvent as event"
+            startOffset="75%"
+            text-anchor="middle"
+            xlink:href="#textCircle"
+        >
+            {{ event.date.valueOf() | date: "shortDate" }} {{ event.name }}
+        </textPath>
+        <textPath startOffset="50%" text-anchor="middle" xlink:href="#textCircle">+++</textPath>
+    </text>
+</svg>

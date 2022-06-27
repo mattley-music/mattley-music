@@ -10,9 +10,17 @@ import { LOCATION_INITIALIZED, LocationStrategy } from "@angular/common";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { AboutComponent } from "./pages/home/components/about/about.component";
 import { AboutInfoComponent } from "./pages/home/components/about-info/about-info.component";
+import { NewsSpinnerComponent } from "./pages/home/components/news-spinner/news-spinner.component";
 
 @NgModule({
-    declarations: [AppComponent, HomeComponent, SectionHeaderComponent, AboutComponent, AboutInfoComponent],
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        SectionHeaderComponent,
+        AboutComponent,
+        AboutInfoComponent,
+        NewsSpinnerComponent,
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
