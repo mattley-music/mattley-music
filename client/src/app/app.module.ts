@@ -11,6 +11,7 @@ import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { AboutComponent } from "./pages/home/components/about/about.component";
 import { AboutInfoComponent } from "./pages/home/components/about-info/about-info.component";
 import { NewsSpinnerComponent } from "./pages/home/components/news-spinner/news-spinner.component";
+import { EventsService } from "./services/events.service";
 
 @NgModule({
     declarations: [
@@ -38,7 +39,7 @@ import { NewsSpinnerComponent } from "./pages/home/components/news-spinner/news-
         {
             provide: APP_INITIALIZER,
             useFactory: AppInitializerFactory,
-            deps: [TranslateService, Injector],
+            deps: [EventsService, TranslateService, Injector],
             multi: true,
         },
     ],
@@ -56,13 +57,14 @@ export function HttpLoaderFactory(http: HttpClient, locationStrategy: LocationSt
 }
 
 /**
- * Wait for the application to load the translations first
+ * Wait for the application to load the translations and events first
  */
-export function AppInitializerFactory(translate: TranslateService, injector: Injector) {
+export function AppInitializerFactory(eventsService: EventsService, translate: TranslateService, injector: Injector) {
     return () =>
         new Promise<any>((resolve: any) => {
+            const eventsInitialized = eventsService.initialize();
             const locationInitialized = injector.get(LOCATION_INITIALIZED, Promise.resolve(null));
-            locationInitialized.then(() => {
+            Promise.allSettled([eventsInitialized, locationInitialized]).then(() => {
                 const language = navigator.language.split("-")[0];
                 translate.setDefaultLang("en");
                 translate.use(language).subscribe({

@@ -16,16 +16,24 @@ export class EventsService {
     /**
      * Constructor
      */
-    constructor() {
-        SheetReader(
-            {
-                sheetId: "1C-UVXCoMXOL4aQo4u5QgohGxqBDPst9zvHvXLb2kVy8",
-                apiKey: "AIzaSyC7AhpCBFGM3u2967xINiu09pBg8zxlSEI",
-                sheetName: "Events",
-            },
-            this.transformData,
-            this.handleError,
-        );
+    public initialize(): Promise<void> {
+        return new Promise((resolve) => {
+            SheetReader(
+                {
+                    sheetId: "1C-UVXCoMXOL4aQo4u5QgohGxqBDPst9zvHvXLb2kVy8",
+                    apiKey: "AIzaSyC7AhpCBFGM3u2967xINiu09pBg8zxlSEI",
+                    sheetName: "Events",
+                },
+                (events: ApiEventsModel[]) => {
+                    this.transformData(events);
+                    resolve();
+                },
+                (error: unknown) => {
+                    console.error("EventsService", error);
+                    resolve();
+                },
+            );
+        });
     }
 
     /**
@@ -52,12 +60,5 @@ export class EventsService {
 
         // Sort the array
         this.events = this.events.sort((a, b) => a.date.date() - b.date.date());
-    };
-
-    /**
-     * Print an unknown/unexpected error
-     */
-    private handleError = (error: unknown) => {
-        console.error("EventsService", error);
     };
 }
