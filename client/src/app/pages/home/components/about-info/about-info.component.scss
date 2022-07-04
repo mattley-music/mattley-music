@@ -3,13 +3,30 @@
 :host {
     flex: 1 1 auto;
     position: relative;
+    margin: 8vh 0;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 
 .info {
     display: flex;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
 
     &.right {
         flex-direction: row-reverse;
+    }
+
+    &.bottom {
+        bottom: unset;
+        top: 0;
     }
 }
 
@@ -110,21 +127,17 @@
 }
 
 @media only screen and (max-width: $width-1) {
+    :host {
+        flex: unset;
+        margin: 12vh 0;
+    }
+
     .line-mid {
         width: $spacing-64 !important;
         height: $spacing-64 !important;
     }
 
     .line-end {
-        position: absolute;
-        bottom: 100%;
-        height: 100vh;
-        width: 1px;
-        right: 0;
-
-        &.right {
-            right: unset;
-            left: 0;
-        }
+        display: none;
     }
 }
