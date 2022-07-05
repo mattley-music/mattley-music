@@ -1,0 +1,60 @@
+<!-- The images -->
+<div class="clothes-glider glide">
+    <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides clothes">
+            <img
+                class="glide__slide"
+                *ngFor="let i of images"
+                src="assets/img/clothes/{{ i }}.jpg"
+                loading="lazy"
+                alt="Clothes"
+            />
+        </ul>
+    </div>
+    <div class="glide__arrows" data-glide-el="controls">
+        <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><</button>
+        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">></button>
+    </div>
+    <div class="glide__bullets" data-glide-el="controls[nav]">
+        <button *ngFor="let i of images" class="glide__bullet" [attr.data-glide-dir]="'=' + i"></button>
+    </div>
+</div>
+
+<!-- The information -->
+<div class="description">
+    <h2>{{ "home.clothes.shirt" | translate }}</h2>
+    <span>{{ "home.clothes.description" | translate }}</span>
+
+    <!-- The size tags -->
+    <div class="tags">
+        <div *ngFor="let size of sizes" (click)="updateSelectedSize(size)" [class.selected]="selectedSize === size">
+            {{ size }}
+        </div>
+    </div>
+
+    <!-- Other tags -->
+    <div class="tags">
+        <!-- The price tag -->
+        <div class="with-image">
+            <svg>
+                <use xlink:href="assets/img/icons.svg#priceTag"></use>
+            </svg>
+            23 Euro
+        </div>
+
+        <!-- Eco tag -->
+        <div class="with-image">
+            <svg>
+                <use xlink:href="assets/img/icons.svg#eco"></use>
+            </svg>
+            {{ "home.clothes.cotton" | translate }}
+        </div>
+    </div>
+
+    <!-- Order -->
+    <app-button
+        text="home.clothes.order"
+        href="mailto:contact@mattleymusic.de?{{ mailToData }}"
+        color="blue"
+    ></app-button>
+</div>

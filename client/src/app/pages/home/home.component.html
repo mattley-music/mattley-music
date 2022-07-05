@@ -24,13 +24,21 @@
 <section id="youtube">
     <app-section-header text="home.youtube.title" color="white"></app-section-header>
     <div class="section-content">
-        <iframe src="https://www.youtube.com/embed/ixrB924BGvc"> </iframe>
+        <iframe
+            src="https://www.youtube.com/embed/ixrB924BGvc"
+            title="In The Mix"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+        ></iframe>
     </div>
 </section>
 
 <!-- Clothes -->
 <section id="clothes">
     <app-section-header text="home.clothes.title" color="blue"></app-section-header>
+    <div class="section-content">
+        <app-clothes></app-clothes>
+    </div>
 </section>
 
 <!-- Gallery -->

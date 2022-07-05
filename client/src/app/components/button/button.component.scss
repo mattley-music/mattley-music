@@ -1,0 +1,16 @@
+@import "vars";
+
+.button {
+    padding: $spacing-8 $spacing-24;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $white;
+
+    &.blue {
+        background: $blue;
+    }
+
+    &.purple {
+        background: $purple;
+    }
+}

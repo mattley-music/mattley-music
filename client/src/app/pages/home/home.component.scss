@@ -81,9 +81,17 @@ section {
     display: flex;
 
         iframe {
-            border: 1px solid $white;
+            border: none;
             height: 100%;
             flex: 1 1 auto;
+    }
+}
+
+#clothes {
+    display: flex;
+
+    .section-content {
+        overflow: hidden;
     }
 }
 

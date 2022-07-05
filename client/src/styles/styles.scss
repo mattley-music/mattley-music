@@ -2,6 +2,12 @@
 @import "vars";
 
 /**
+ * GlideJS
+ */
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+
+/**
  *
  * General
  *
@@ -35,6 +41,12 @@ h1 {
     white-space: nowrap;
 }
 
+h2 {
+    font-size: $h2;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
 h3 {
     font-size: $h3;
     font-weight: 700;
@@ -53,19 +65,19 @@ h4 {
     display: flex;
 }
 
-@media only screen and (max-width: $width-1 + 200px) {
+@media only screen and (max-width: $width-1 + $shrink-offset) {
     html {
         font-size: 90%;
     }
 }
 
-@media only screen and (max-width: $width-2 + 200px) {
+@media only screen and (max-width: $width-2 + $shrink-offset) {
     html {
         font-size: 80%;
     }
 }
 
-@media only screen and (max-width: $width-3 + 200px) {
+@media only screen and (max-width: $width-3 + $shrink-offset) {
     html {
         font-size: 70%;
     }

@@ -12,6 +12,8 @@ import { AboutComponent } from "./pages/home/components/about/about.component";
 import { AboutInfoComponent } from "./pages/home/components/about-info/about-info.component";
 import { NewsSpinnerComponent } from "./pages/home/components/news-spinner/news-spinner.component";
 import { EventsService } from "./services/events.service";
+import { ClothesComponent } from "./pages/home/components/clothes/clothes.component";
+import { ButtonComponent } from "./components/button/button.component";
 
 @NgModule({
     declarations: [
@@ -21,6 +23,8 @@ import { EventsService } from "./services/events.service";
         AboutComponent,
         AboutInfoComponent,
         NewsSpinnerComponent,
+        ClothesComponent,
+        ButtonComponent,
     ],
     imports: [
         BrowserModule,

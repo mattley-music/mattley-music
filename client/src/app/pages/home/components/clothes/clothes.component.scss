@@ -1,0 +1,100 @@
+@import "vars";
+
+:host {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.clothes-glider {
+    height: 100%;
+    width: 60%;
+    max-width: 60vh;
+    flex: 1 0 auto;
+
+    .clothes {
+        height: 100%;
+
+        & > img {
+            background: black;
+            object-fit: cover;
+            align-self: center;
+        }
+    }
+
+    .glide__track {
+        height: 100%;
+    }
+
+    .glide__arrow {
+        border: none;
+        background: $blue;
+        border-radius: 20px;
+        font-weight: 700;
+        font-size: 16px;
+    }
+}
+
+.description {
+    margin-left: $spacing-64;
+
+    h2 {
+        color: $blue;
+        margin-bottom: $spacing-24
+    }
+
+    .tags {
+        display: flex;
+        margin-top: $spacing-24;
+        margin-bottom: $spacing-12;
+
+        &:last-of-type {
+            margin-top: $spacing-12;
+            margin-bottom: $spacing-32;
+        }
+
+        &>div {
+            border: 1px solid $black;
+            padding: $spacing-8 $spacing-16;
+            text-transform: uppercase;
+            margin-right: $spacing-12;
+            cursor: pointer;
+            font-size: $small;
+
+            &.selected {
+                background: $black;
+                color: $white;
+            }
+        }
+
+        &>.with-image {
+            display: flex;
+            align-items: center;
+            cursor: default;
+
+            &>svg {
+                width: 1.2rem;
+                height: 1.2rem;
+                margin-right: $spacing-8;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $width-2 + $shrink-offset) {
+    :host {
+        flex-direction: column;
+    }
+
+    .glide {
+        width: 100%;
+        max-width: 100%;
+        height: 60vh;
+        flex: 1 1 auto;
+    }
+
+    .description {
+        margin-left: 0;
+        margin-top: $spacing-32;
+    }
+}
