@@ -34,6 +34,13 @@ body {
     font-weight: normal;
 }
 
+a {
+    text-decoration: none;
+}
+
+/**
+ * Font sizes
+ */
 h1 {
     font-size: $h1;
     font-weight: 800;
@@ -80,5 +87,52 @@ h4 {
 @media only screen and (max-width: $width-3 + $shrink-offset) {
     html {
         font-size: 70%;
+    }
+}
+
+/**
+ * Spacing for content
+ */
+section {
+    padding: $spacing-64;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.section-content {
+    flex: 1 1 auto;
+    padding: $spacing-128 $spacing-64 $spacing-64 $spacing-128;
+}
+
+@media only screen and (max-width: $width-1) {
+    section {
+        padding: $spacing-48;
+    }
+
+    .section-content {
+        padding: $spacing-96 $spacing-48 $spacing-48 $spacing-96;
+    }
+}
+
+@media only screen and (max-width: $width-2) {
+    section {
+        padding: $spacing-64 $spacing-48;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .section-content {
+        padding: $spacing-32 0;
+    }
+}
+
+@media only screen and (max-width: $width-3) {
+    section {
+        padding: $spacing-48 $spacing-32;
+    }
+
+    .section-content {
+        padding: $spacing-24 0;
     }
 }

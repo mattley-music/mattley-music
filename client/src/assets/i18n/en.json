@@ -24,5 +24,13 @@
         "others": {
             "title": "Others"
         }
+    },
+    "legalNotice": {
+        "title": "Legal Notice",
+        "representedBy": "Represented By",
+        "postalAddress": "Postal Address",
+        "contact": "Contact",
+        "email": "E-Mail",
+        "back": "Back"
     }
 }

@@ -24,5 +24,13 @@
         "others": {
             "title": "Sonstiges"
         }
+    },
+    "legalNotice": {
+        "title": "Impressum",
+        "representedBy": "Verteten durch",
+        "postalAddress": "Postanschrift",
+        "contact": "Kontakt",
+        "email": "E-Mail",
+        "back": "Zurück"
     }
 }

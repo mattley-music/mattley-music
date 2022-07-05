@@ -14,6 +14,8 @@ import { NewsSpinnerComponent } from "./pages/home/components/news-spinner/news-
 import { EventsService } from "./services/events.service";
 import { ClothesComponent } from "./pages/home/components/clothes/clothes.component";
 import { ButtonComponent } from "./components/button/button.component";
+import { LegalNoticeComponent } from "./pages/legal-notice/legal-notice.component";
+import { OthersComponent } from "./pages/home/components/others/others.component";
 
 @NgModule({
     declarations: [
@@ -25,6 +27,8 @@ import { ButtonComponent } from "./components/button/button.component";
         NewsSpinnerComponent,
         ClothesComponent,
         ButtonComponent,
+        LegalNoticeComponent,
+        OthersComponent,
     ],
     imports: [
         BrowserModule,

@@ -1,10 +1,16 @@
 @import "vars";
 
+:host {
+    display: flex;
+}
+
 .button {
+    display: flex;
     padding: $spacing-8 $spacing-24;
     text-transform: uppercase;
     text-decoration: none;
     color: $white;
+    cursor: pointer;
 
     &.blue {
         background: $blue;

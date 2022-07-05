@@ -41,8 +41,8 @@ export class ClothesComponent implements AfterViewInit {
             startAt: 0,
             perView: 1,
             keyboard: true,
-            swipeThreshold: 0,
-            dragThreshold: 0,
+            swipeThreshold: 1,
+            dragThreshold: 1,
             gap: 16,
             focusAt: "center",
         }).mount();

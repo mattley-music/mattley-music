@@ -7,24 +7,15 @@
     overflow-y: scroll;
 }
 
-section {
-    padding: $spacing-64;
-    width: 100%;
-    height: 100%;
-}
-
 .section-content {
-    flex: 1 1 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: $spacing-128 $spacing-64 $spacing-64 $spacing-128;
 }
 
 #intro {
     position: relative;
     height: 100%;
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
 
@@ -72,24 +63,18 @@ section {
     }
 }
 
-#about {
-    display: flex;
-}
-
 #youtube {
     background: $purple;
-    display: flex;
 
-        iframe {
-            border: none;
-            height: 100%;
-            flex: 1 1 auto;
+    iframe {
+        border: none;
+        height: 100%;
+        flex: 1 1 auto;
+        min-height: 35vh;
     }
 }
 
 #clothes {
-    display: flex;
-
     .section-content {
         overflow: hidden;
     }
@@ -100,14 +85,6 @@ section {
 }
 
 @media only screen and (max-width: $width-1) {
-    section {
-        padding: $spacing-48;
-    }
-
-    .section-content {
-        padding: $spacing-96 $spacing-48 $spacing-48 $spacing-96;
-    }
-
     #intro {
         .news-spinner {
             right: $spacing-48;
@@ -116,16 +93,6 @@ section {
 }
 
 @media only screen and (max-width: $width-2) {
-    section {
-        padding: $spacing-64 $spacing-48;
-        flex-direction: column;
-        height: auto;
-    }
-
-    .section-content {
-        padding: $spacing-32 0;
-    }
-
     .youtube {
         iframe {
             height: 50vw;
@@ -141,14 +108,6 @@ section {
 }
 
 @media only screen and (max-width: $width-3) {
-    section {
-        padding: $spacing-48 $spacing-32;
-    }
-
-    .section-content {
-        padding: $spacing-24 0;
-    }
-
     #intro {
         .logo {
             height: 8rem;
