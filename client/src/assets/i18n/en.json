@@ -10,7 +10,7 @@
             "title": "In The Mix"
         },
         "clothes": {
-            "title": "Clothes",
+            "title": "Clothing",
             "shirt": "Mattley Shirt",
             "description": "The blanks are made entirely of cotton and are verified by \"Fair Wair\", \"GRS\", \"GOTS\". Printed were\nthe shirts in the district of Biberach, so everything local!",
             "cotton": "100% Cotton",
@@ -20,6 +20,9 @@
         },
         "gallery": {
             "title": "Gallery"
+        },
+        "spotify": {
+            "title": "Playlists"
         },
         "others": {
             "title": "Others"

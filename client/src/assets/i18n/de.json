@@ -21,6 +21,9 @@
         "gallery": {
             "title": "Gallerie"
         },
+        "spotify": {
+            "title": "Playlists"
+        },
         "others": {
             "title": "Sonstiges"
         }

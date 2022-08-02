@@ -1,12 +1,13 @@
 <!-- The intro -->
 <section id="intro">
-    <img class="background" src="assets/img/intro.jpg" alt="Intro" />
+    <img class="background" src="assets/img/intro.png" alt="Intro" />
     <div class="row">
         <img class="logo" src="assets/img/logo.svg" alt="Logo" />
         <div class="menu">
             <a (click)="scrollTo('about')">{{ "home.about.title" | translate }}</a>
             <a (click)="scrollTo('youtube')">{{ "home.youtube.title" | translate }}</a>
             <a (click)="scrollTo('clothes')">{{ "home.clothes.title" | translate }}</a>
+            <a (click)="scrollTo('spotify')">{{ "home.spotify.title" | translate }}</a>
         </div>
     </div>
     <app-news-spinner class="news-spinner"></app-news-spinner>
@@ -44,11 +45,27 @@
 <!-- Gallery -->
 <section id="gallery">
     <app-section-header text="home.gallery.title" color="white"></app-section-header>
+    <div class="section-content">
+        <app-gallery></app-gallery>
+    </div>
 </section>
 
-<!-- Clothes -->
+<!-- Gallery -->
+<section id="spotify">
+    <app-section-header text="home.spotify.title" color="purple"></app-section-header>
+    <div class="section-content">
+        <iframe
+            src="https://open.spotify.com/embed/playlist/5zD1Omh2VmrNGsKeB8gfob?utm_source=generator&theme=0"
+            frameBorder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        ></iframe>
+    </div>
+</section>
+
+<!-- Others -->
 <section id="others">
-    <app-section-header text="home.others.title" color="purple"></app-section-header>
+    <app-section-header text="home.others.title" color="white"></app-section-header>
     <div class="section-content">
         <app-others></app-others>
     </div>

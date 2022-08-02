@@ -1,0 +1,42 @@
+@import "vars";
+
+:host {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    margin: -$spacing-8;
+
+    img {
+        flex: 0 1 auto;
+        margin: $spacing-8;
+        min-width: 0;
+        object-fit: cover;
+
+        &:nth-child(2n) {
+            justify-self: center;
+        }
+
+        &:nth-child(3n) {
+            justify-self: flex-end;
+        }
+    }
+}
+
+.image-overlay {
+    position: fixed;
+    background: $black;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        max-height: 100vh;
+        max-width: 100vw;
+    }
+}

@@ -9,7 +9,7 @@ export class HomeComponent {
     /**
      * The shown sections
      */
-    private sections = ["about", "youtube", "clothes", "gallery", "others"];
+    private sections = ["about", "youtube", "clothes", "gallery", "spotify", "others"];
     /**
      * The timeout reference for the scroll snapping
      */

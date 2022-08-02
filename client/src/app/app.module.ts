@@ -16,6 +16,7 @@ import { ClothesComponent } from "./pages/home/components/clothes/clothes.compon
 import { ButtonComponent } from "./components/button/button.component";
 import { LegalNoticeComponent } from "./pages/legal-notice/legal-notice.component";
 import { OthersComponent } from "./pages/home/components/others/others.component";
+import { GalleryComponent } from "./pages/home/components/gallery/gallery.component";
 
 @NgModule({
     declarations: [
@@ -29,6 +30,7 @@ import { OthersComponent } from "./pages/home/components/others/others.component
         ButtonComponent,
         LegalNoticeComponent,
         OthersComponent,
+        GalleryComponent,
     ],
     imports: [
         BrowserModule,

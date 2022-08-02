@@ -1,0 +1,10 @@
+<img
+    *ngFor="let image of images"
+    alt="img{{ image }}"
+    class="img-responsive"
+    src="assets/img/gallery/small/{{ image }}.jpg"
+    (click)="selectedImage = image"
+/>
+<div *ngIf="selectedImage" class="image-overlay" (click)="selectedImage = undefined">
+    <img src="assets/img/gallery/{{ selectedImage }}.jpg" alt="Big Image" />
+</div>

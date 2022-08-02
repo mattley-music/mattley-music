@@ -10,6 +10,7 @@ import { TranslateService } from "@ngx-translate/core";
 export class ClothesComponent implements AfterViewInit {
     /**
      * The ids of the clothing images
+     * TODO: ipad sizing
      */
     public images = [0, 1, 2, 3];
     /**
@@ -37,7 +38,7 @@ export class ClothesComponent implements AfterViewInit {
      */
     public ngAfterViewInit(): void {
         new Glide(".clothes-glider", {
-            type: "slider",
+            type: "carousel",
             startAt: 0,
             perView: 1,
             keyboard: true,
