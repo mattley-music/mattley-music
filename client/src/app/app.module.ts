@@ -17,6 +17,8 @@ import { ButtonComponent } from "./components/button/button.component";
 import { LegalNoticeComponent } from "./pages/legal-notice/legal-notice.component";
 import { OthersComponent } from "./pages/home/components/others/others.component";
 import { GalleryComponent } from "./pages/home/components/gallery/gallery.component";
+import { SpotifyComponent } from "./pages/home/components/spotify/spotify.component";
+import { SafePipe } from "./pipes/safe.pipe";
 
 @NgModule({
     declarations: [
@@ -31,6 +33,8 @@ import { GalleryComponent } from "./pages/home/components/gallery/gallery.compon
         LegalNoticeComponent,
         OthersComponent,
         GalleryComponent,
+        SpotifyComponent,
+        SafePipe,
     ],
     imports: [
         BrowserModule,
