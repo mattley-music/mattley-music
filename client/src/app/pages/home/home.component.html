@@ -10,11 +10,13 @@
             <a (click)="scrollTo('spotify')">{{ "home.spotify.title" | translate }}</a>
         </div>
     </div>
-    <app-news-spinner class="news-spinner"></app-news-spinner>
 </section>
 
 <!-- About me -->
 <section id="about">
+    <div class="news-spinner">
+        <app-news-spinner></app-news-spinner>
+    </div>
     <app-section-header text="home.about.title"></app-section-header>
     <div class="section-content">
         <app-about></app-about>

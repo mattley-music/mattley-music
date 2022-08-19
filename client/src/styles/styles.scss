@@ -94,16 +94,28 @@ h4 {
 /**
  * Spacing for content
  */
+$spacing-left-right: calc((100vw - 177vh) / 2);
 section {
-    padding: $spacing-64;
+    padding: $spacing-64 max($spacing-64, $spacing-left-right);
     width: 100vw;
     height: 100vh;
     display: flex;
+    position: relative;
 }
 
 .section-content {
     flex: 1 1 auto;
     padding: $spacing-128 $spacing-64 $spacing-64 $spacing-128;
+}
+
+@media only screen and (max-height: $height-1) {
+    section {
+        padding: $spacing-48 max($spacing-48, $spacing-left-right);
+    }
+
+    .section-content {
+        padding: $spacing-96 $spacing-48 $spacing-48 $spacing-96;
+    }
 }
 
 @media only screen and (max-width: $width-1) {

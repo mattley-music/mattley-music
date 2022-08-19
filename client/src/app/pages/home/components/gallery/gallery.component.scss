@@ -1,26 +1,19 @@
 @import "vars";
 
 :host {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
     height: 100%;
     width: 100%;
     margin: -$spacing-8;
+    gap: $spacing-16;
 
     img {
-        flex: 0 1 auto;
-        margin: $spacing-8;
+        height: 100%;
+        width: 100%;
         min-width: 0;
         object-fit: cover;
-
-        &:nth-child(2n) {
-            justify-self: center;
-        }
-
-        &:nth-child(3n) {
-            justify-self: flex-end;
-        }
     }
 }
 

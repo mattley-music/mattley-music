@@ -11,7 +11,9 @@
 }
 
 #intro {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 100vh;
     flex-direction: column;
     justify-content: space-between;
@@ -49,14 +51,24 @@
         z-index: -1;
         object-fit: cover;
     }
+}
+
+#about {
+    margin-top: 100vh;
+    background: $white;
 
     .news-spinner {
+        display: flex;
         position: absolute;
-        width: 14rem;
-        height: 14rem;
-        right: $spacing-64;
-        bottom: -7rem;
+        right: 0;
+        padding-right: inherit;
+        top: -7rem;
         z-index: 10;
+
+        & > * {
+            width: 14rem;
+            height: 14rem;
+        }
     }
 }
 
@@ -72,6 +84,8 @@
 }
 
 #clothes {
+    background: $white;
+
     .section-content {
         overflow: hidden;
     }
@@ -82,6 +96,8 @@
 }
 
 #spotify {
+    background: $white;
+
     .section-content {
         overflow: hidden;
     }
@@ -91,25 +107,15 @@
     background: $purple;
 }
 
-@media only screen and (max-width: $width-1) {
-    #intro {
-        .news-spinner {
-            right: $spacing-48;
-        }
-    }
-}
-
 @media only screen and (max-width: $width-2) {
-    .youtube {
-        iframe {
-            height: 50vw;
-        }
-    }
-
-    #intro {
+    #about {
         .news-spinner {
-            right: $spacing-32;
-            bottom: $spacing-32;
+            top: calc(-12rem - $spacing-24);
+
+            & > * {
+                width: 12rem;
+                height: 12rem;
+            }
         }
     }
 }
@@ -127,13 +133,6 @@
 
         .menu {
             display: none;
-        }
-
-        .news-spinner {
-            width: 12rem;
-            height: 12rem;
-            right: $spacing-24;
-            bottom: $spacing-24;
         }
     }
 }
