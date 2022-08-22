@@ -9,17 +9,35 @@
     margin: -$spacing-8;
     gap: $spacing-16;
 
+    .preview {
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+            img {
+                width: 120%;
+                height: 120%;
+            }
+        }
+    }
+
+    div,
     img {
+        transition: all 300ms;
         height: 100%;
         width: 100%;
         min-width: 0;
         object-fit: cover;
+        cursor: pointer;
     }
 }
 
 .image-overlay {
     position: fixed;
     background: $black;
+    z-index: 1000;
     width: 100vw;
     height: 100vh;
     top: 0;
@@ -29,7 +47,11 @@
     align-items: center;
 
     img {
-        max-height: 100vh;
-        max-width: 100vw;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
 }

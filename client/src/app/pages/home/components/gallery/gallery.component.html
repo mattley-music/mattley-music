@@ -1,10 +1,12 @@
-<img
-    *ngFor="let image of images"
-    alt="img{{ image }}"
-    class="img-responsive"
-    src="assets/img/gallery/small/{{ image }}.jpg"
-    (click)="selectedImage = image"
-/>
-<div *ngIf="selectedImage" class="image-overlay" (click)="selectedImage = undefined">
-    <img src="assets/img/gallery/{{ selectedImage }}.jpg" alt="Big Image" />
+<div class="preview" *ngFor="let image of images">
+    <img
+        draggable="false"
+        alt="img{{ image }}"
+        class="img-responsive"
+        src="assets/img/gallery/small/{{ image }}.jpg"
+        (click)="selectedImage.next(image)"
+    />
+</div>
+<div *ngIf="selectedImage.value" class="image-overlay" (click)="selectedImage.next(undefined)">
+    <img draggable="false" src="assets/img/gallery/{{ selectedImage.value }}.jpg" alt="Big Image" />
 </div>
