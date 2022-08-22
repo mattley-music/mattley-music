@@ -1,13 +1,16 @@
 <div class="spotify-glider glide">
     <div class="glide__track" data-glide-el="track">
         <ul class="glide__slides playlists">
-            <iframe
-                *ngFor="let playlist of playlists"
-                [src]="'https://open.spotify.com/embed/playlist/' + playlist + '?utm_source=generator&theme=0' | safe"
-                frameBorder="0"
-                allowfullscreen=""
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            ></iframe>
+            <div class="playlist" *ngFor="let playlist of playlists">
+                <iframe
+                    [src]="
+                        'https://open.spotify.com/embed/playlist/' + playlist + '?utm_source=generator&theme=0' | safe
+                    "
+                    frameBorder="0"
+                    allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                ></iframe>
+            </div>
         </ul>
     </div>
     <div class="glide__arrows" data-glide-el="controls">
