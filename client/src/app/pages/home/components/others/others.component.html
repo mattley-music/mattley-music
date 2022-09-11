@@ -1,1 +1,16 @@
-<a routerLink="/legal-notice">{{ "legalNotice.title" | translate }}</a>
+<div class="card">
+    <h2>Up and coming events<br /></h2>
+    <div *ngFor="let event of eventService.events">{{ event.date.valueOf() | date: "shortDate" }}{{ event.name }}</div>
+</div>
+<div class="card">
+    <h2>Mattley ({{ "home.others.legalNotice.title" | translate }})<br /></h2>
+    <h3>{{ "home.others.legalNotice.representedBy" | translate }}</h3>
+    <p>Matthias Schmid <br /></p>
+    <h3>{{ "home.others.legalNotice.postalAddress" | translate }}</h3>
+    <p>
+        Lindenstraße 6<br />
+        89155 Erbach
+    </p>
+    <h3>{{ "home.others.legalNotice.contact" | translate }}</h3>
+    <p>{{ "home.others.legalNotice.email" | translate }}: contact@mattleymusic.de</p>
+</div>

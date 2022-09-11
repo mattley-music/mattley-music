@@ -1,12 +1,33 @@
-<div class="preview" *ngFor="let image of images">
+<div class="preview" *ngFor="let image of config">
     <img
+        *ngIf="!image.isVideo"
         draggable="false"
-        alt="img{{ image }}"
+        alt="img{{ image.index }}"
         class="img-responsive"
-        src="assets/img/gallery/small/{{ image }}.jpg"
+        src="assets/img/gallery/small/{{ image.index }}.jpg"
         (click)="selectedImage.next(image)"
     />
+    <video
+        *ngIf="image.isVideo"
+        id="video-{{ image.videoIndex }}"
+        (loadeddata)="collectVideoPlayer(image.videoIndex)"
+        (click)="selectedImage.next(image)"
+        [muted]="'muted'"
+    >
+        <source src="assets/img/gallery/{{ image.index }}.mp4" type="video/mp4" />
+    </video>
 </div>
-<div *ngIf="selectedImage.value" class="image-overlay" (click)="selectedImage.next(undefined)">
-    <img draggable="false" src="assets/img/gallery/{{ selectedImage.value }}.jpg" alt="Big Image" />
+<div id="progress-bar"></div>
+<div *ngIf="selectedImage.value" class="image-overlay">
+    <img
+        class="fullscreen-content"
+        *ngIf="!selectedImage.value.isVideo"
+        draggable="false"
+        src="assets/img/gallery/{{ selectedImage.value.index }}.jpg"
+        alt="Big Image"
+    />
+    <video class="fullscreen-content" *ngIf="selectedImage.value.isVideo" autoplay loop controls>
+        <source src="assets/img/gallery/{{ selectedImage.value.index }}.mp4" type="video/mp4" />
+    </video>
+    <span class="fullscreen-close" (click)="selectedImage.next(undefined)">X</span>
 </div>

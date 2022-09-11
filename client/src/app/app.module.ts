@@ -14,11 +14,15 @@ import { NewsSpinnerComponent } from "./pages/home/components/news-spinner/news-
 import { EventsService } from "./services/events.service";
 import { ClothesComponent } from "./pages/home/components/clothes/clothes.component";
 import { ButtonComponent } from "./components/button/button.component";
-import { LegalNoticeComponent } from "./pages/legal-notice/legal-notice.component";
 import { OthersComponent } from "./pages/home/components/others/others.component";
 import { GalleryComponent } from "./pages/home/components/gallery/gallery.component";
 import { SpotifyComponent } from "./pages/home/components/spotify/spotify.component";
 import { SafePipe } from "./pipes/safe.pipe";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
+
+// GSAP Plugins
+gsap.registerPlugin(ScrollTrigger);
 
 @NgModule({
     declarations: [
@@ -30,7 +34,6 @@ import { SafePipe } from "./pipes/safe.pipe";
         NewsSpinnerComponent,
         ClothesComponent,
         ButtonComponent,
-        LegalNoticeComponent,
         OthersComponent,
         GalleryComponent,
         SpotifyComponent,
