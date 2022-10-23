@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, Injector, NgModule } from "@angular/core";
+import { APP_INITIALIZER, Injector, LOCALE_ID, NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -6,7 +6,7 @@ import { HomeComponent } from "./pages/home/home.component";
 import { SectionHeaderComponent } from "./pages/home/components/section-header/section-header.component";
 import { TranslateLoader, TranslateModule, TranslateService } from "@ngx-translate/core";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
-import { LOCATION_INITIALIZED, LocationStrategy } from "@angular/common";
+import { LOCATION_INITIALIZED, LocationStrategy, registerLocaleData } from "@angular/common";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { AboutComponent } from "./pages/home/components/about/about.component";
 import { AboutInfoComponent } from "./pages/home/components/about-info/about-info.component";
@@ -20,6 +20,15 @@ import { SpotifyComponent } from "./pages/home/components/spotify/spotify.compon
 import { SafePipe } from "./pipes/safe.pipe";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
+import localeDe from "@angular/common/locales/de";
+
+// Register additional languages (required for angular pipes, e.g. date pipe)
+registerLocaleData(localeDe);
+
+// Get the current browser language
+const availableLanguages = ["de", "en"];
+let browserLanguage = navigator.language.split("-")[0];
+if (!availableLanguages.includes(browserLanguage)) browserLanguage = "en";
 
 // GSAP Plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -59,6 +68,7 @@ gsap.registerPlugin(ScrollTrigger);
             deps: [EventsService, TranslateService, Injector],
             multi: true,
         },
+        { provide: LOCALE_ID, useValue: browserLanguage },
     ],
     bootstrap: [AppComponent],
 })
@@ -82,9 +92,8 @@ export function AppInitializerFactory(eventsService: EventsService, translate: T
             const eventsInitialized = eventsService.initialize();
             const locationInitialized = injector.get(LOCATION_INITIALIZED, Promise.resolve(null));
             Promise.allSettled([eventsInitialized, locationInitialized]).then(() => {
-                const language = navigator.language.split("-")[0];
                 translate.setDefaultLang("en");
-                translate.use(language).subscribe({
+                translate.use(browserLanguage).subscribe({
                     complete: () => resolve(),
                 });
             });

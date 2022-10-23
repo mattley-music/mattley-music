@@ -26,6 +26,10 @@
         },
         "others": {
             "title": "Others",
+            "upcomingEvents": {
+                "title": "Upcoming Events",
+                "nothing": "Currently, there are no events planned :("
+            },
             "legalNotice": {
                 "title": "Legal Notice",
                 "representedBy": "Represented By",

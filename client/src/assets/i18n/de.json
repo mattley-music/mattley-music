@@ -26,6 +26,10 @@
         },
         "others": {
             "title": "Sonstiges",
+            "upcomingEvents": {
+                "title": "Upcoming Events",
+                "nothing": "Aktuell sind keine Events geplant :("
+            },
             "legalNotice": {
                 "title": "Impressum",
                 "representedBy": "Verteten durch",

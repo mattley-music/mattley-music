@@ -59,6 +59,6 @@ export class EventsService {
         }
 
         // Sort the array
-        this.events = this.events.sort((a, b) => a.date.date() - b.date.date());
+        this.events = this.events.sort((a, b) => (a.date.isBefore(b.date) ? -1 : 1));
     };
 }

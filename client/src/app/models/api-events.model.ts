@@ -13,9 +13,13 @@ interface GeneralEventsModel<T> {
      */
     name: string;
     /**
-     * The description for the event
+     * The short description for the event
      */
-    description?: string;
+    descriptionShort?: string;
+    /**
+     * The long description for the event
+     */
+    descriptionLong?: string;
 }
 
 /**

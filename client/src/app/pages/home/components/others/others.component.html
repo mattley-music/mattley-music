@@ -1,6 +1,27 @@
 <div class="card">
-    <h2>Up and coming events<br /></h2>
-    <div *ngFor="let event of eventService.events">{{ event.date.valueOf() | date: "shortDate" }}{{ event.name }}</div>
+    <h2>{{ "home.others.upcomingEvents.title" | translate }}<br /></h2>
+    <div class="event" *ngFor="let event of eventService.events">
+        <div>
+            <svg>
+                <use xlink:href="assets/img/icons.svg#date"></use>
+            </svg>
+            {{ event.date.valueOf() | date: "shortDate" }} {{ event.name }}
+        </div>
+        <div>
+            <svg>
+                <use xlink:href="assets/img/icons.svg#info"></use>
+            </svg>
+            {{ event.descriptionLong }}
+        </div>
+    </div>
+    <div *ngIf="eventService.events.length <= 0" class="event">
+        <div>
+            <svg>
+                <use xlink:href="assets/img/icons.svg#info"></use>
+            </svg>
+            {{ "home.others.upcomingEvents.nothing" | translate }}
+        </div>
+    </div>
 </div>
 <div class="card">
     <h2>Mattley ({{ "home.others.legalNotice.title" | translate }})<br /></h2>

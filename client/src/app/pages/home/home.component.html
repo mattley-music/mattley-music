@@ -16,7 +16,7 @@
 <!-- About me -->
 <section id="about">
     <div class="news-spinner">
-        <app-news-spinner></app-news-spinner>
+        <app-news-spinner (click)="scrollTo('others')"></app-news-spinner>
     </div>
     <app-section-header text="home.about.title"></app-section-header>
     <div class="section-content">

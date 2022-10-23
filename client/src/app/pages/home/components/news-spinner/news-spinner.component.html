@@ -5,20 +5,10 @@
     <text fill="white">
         <textPath startOffset="0%" text-anchor="middle" xlink:href="#textCircle">+++</textPath>
         <textPath startOffset="100%" text-anchor="middle" xlink:href="#textCircle">+++</textPath>
-        <textPath
-            *ngIf="!this.eventService.nextEvent"
-            startOffset="25%"
-            text-anchor="middle"
-            xlink:href="#textCircle"
-        >
+        <textPath *ngIf="!this.eventService.nextEvent" startOffset="25%" text-anchor="middle" xlink:href="#textCircle">
             {{ "home.intro.nothingUpcoming" | translate }}
         </textPath>
-        <textPath
-            *ngIf="!this.eventService.nextEvent"
-            startOffset="75%"
-            text-anchor="middle"
-            xlink:href="#textCircle"
-        >
+        <textPath *ngIf="!this.eventService.nextEvent" startOffset="75%" text-anchor="middle" xlink:href="#textCircle">
             {{ "home.intro.nothingUpcoming" | translate }}
         </textPath>
         <textPath
@@ -27,7 +17,7 @@
             text-anchor="middle"
             xlink:href="#textCircle"
         >
-            {{ event.date.valueOf() | date: "shortDate" }} {{ event.name }}
+            {{ event.name }}
         </textPath>
         <textPath
             *ngIf="this.eventService.nextEvent as event"
@@ -35,7 +25,7 @@
             text-anchor="middle"
             xlink:href="#textCircle"
         >
-            {{ event.date.valueOf() | date: "shortDate" }} {{ event.name }}
+            {{ event.date.valueOf() | date: "shortDate" }} {{ event.descriptionShort }}
         </textPath>
         <textPath startOffset="50%" text-anchor="middle" xlink:href="#textCircle">+++</textPath>
     </text>

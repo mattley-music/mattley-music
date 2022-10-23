@@ -11,6 +11,40 @@
     background: $white;
     padding: $spacing-32;
     margin-right: $spacing-32;
+    overflow: auto;
+
+    h2 {
+        margin-bottom: $spacing-16;
+    }
+
+    .event {
+        display: flex;
+        padding: $spacing-16 0;
+        border-bottom: 1px solid black;
+        align-items: flex-start;
+        flex-direction: column;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        & > div {
+            display: flex;
+            margin-right: $spacing-32;
+            margin-bottom: $spacing-8;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        svg {
+            flex: 0 0 auto;
+            width: $spacing-24;
+            height: $spacing-24;
+            margin-right: $spacing-16;
+        }
+    }
 
     &:last-child {
         margin-right: 0;
@@ -26,14 +60,7 @@ h3 {
     margin-top: $spacing-32;
 }
 
-@media only screen and (min-width: $width-2) {
-    h2 {
-        margin-bottom: $spacing-32;
-    }
-}
-
-
-@media only screen and (max-width: $width-2) {
+@media only screen and (max-width: 1000px) {
     :host {
         flex-direction: column;
     }
