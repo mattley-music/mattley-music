@@ -24,6 +24,13 @@
         align-items: flex-start;
         flex-direction: column;
 
+        &:first-of-type {
+            * {
+                fill: $purple;
+                font-weight: 600;
+            }
+        }
+
         &:last-child {
             border-bottom: none;
         }

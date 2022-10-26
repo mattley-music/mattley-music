@@ -1,17 +1,6 @@
 import { Component } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
-import galleryConfig from "./gallery.config.json";
 import gsap from "gsap";
-import { Linear, Expo } from "gsap";
-
-/**
- * The configuration used for displaying the images and videos
- */
-interface GalleryConfig {
-    index: number;
-    isVideo: boolean;
-    videoIndex?: number;
-}
 
 @Component({
     selector: "app-gallery",
@@ -20,29 +9,29 @@ interface GalleryConfig {
 })
 export class GalleryComponent {
     /**
-     * The amount of columns in the gallery
+     * The value for the selected image if nothing is selected
      */
-    private readonly amountOfColumns = 4;
+    public readonly noSelection = -2;
     /**
-     * The shown images
+     * The value for the selected image if video is selected
      */
-    public config: GalleryConfig[] = galleryConfig;
+    public readonly video = -1;
+    /**
+     * The images that are shown besides the video
+     */
+    public readonly images = [0, 1, 2, 3, 4, 5];
     /**
      * The currently selected image
      */
-    public selectedImage = new BehaviorSubject<GalleryConfig | undefined>(undefined);
+    public selectedImage = new BehaviorSubject<number>(this.noSelection);
     /**
-     * The video players (required for animation)
+     * The video player (required for animation)
      */
-    private videoPlayers: HTMLVideoElement[] = [];
+    private videoPlayer?: HTMLVideoElement;
     /**
      * The timeline for animating the gallery
      */
     private timeline?: gsap.core.Timeline;
-    /**
-     * The amount of initialized videos
-     */
-    private initializedVideos = 0;
 
     /**
      * Constructor
@@ -52,13 +41,11 @@ export class GalleryComponent {
     }
 
     /**
-     * Collect the video players for animation
-     * @param videoIndex The index of the loaded video player
+     * Collect the video player for animation
      */
-    public collectVideoPlayer = (videoIndex: number | undefined): void => {
-        this.videoPlayers[videoIndex as number] = document.getElementById(`video-${videoIndex}`) as HTMLVideoElement;
-        this.initializedVideos++;
-        if (this.initializedVideos >= this.amountOfColumns) this.prepareAnimation();
+    public collectVideoPlayer = (): void => {
+        this.videoPlayer = document.getElementById(`video-player`) as HTMLVideoElement;
+        this.prepareAnimation();
     };
 
     /**
@@ -71,44 +58,16 @@ export class GalleryComponent {
                 start: "top top+=100",
             },
         });
-        for (let i = 0; i < this.videoPlayers.length; i++) {
-            this.timeline.to(`#video-${i}`, {
-                duration: 0,
-                filter: "grayscale(0)",
-                onComplete: this.videoPlayers[i].play.bind(this.videoPlayers[i]) as () => void,
-            });
-            this.timeline.to(
-                "#progress-bar",
-                {
-                    duration: this.videoPlayers[i].duration,
-                    width: `${25 * (i + 1)}%`,
-                    ease: Linear.easeNone,
-                },
-                "<",
-            );
-        }
-        this.timeline.to("#progress-bar", {
-            delay: 2,
-            duration: 1,
-            width: "0%",
-            left: "50%",
-            ease: Expo.easeIn,
-        });
-        this.timeline.to("#progress-bar", {
-            duration: 0,
-            opacity: 0,
-        });
-        this.timeline.to(".img-responsive", {
-            delay: 1,
-            filter: "grayscale(0)",
-            duration: 3,
+        this.timeline.to(`#video-player`, {
+            duration: 0.1,
+            onComplete: this.videoPlayer?.play.bind(this.videoPlayer) as () => void,
         });
     };
 
     /**
      * Disables scrolling while an image is selected
      */
-    private lockScrolling = (value: GalleryConfig | undefined): void => {
-        document.documentElement.style.overflow = value ? "hidden" : "auto";
+    private lockScrolling = (value: number): void => {
+        document.documentElement.style.overflow = value === this.noSelection ? "auto" : "hidden";
     };
 }
