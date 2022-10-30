@@ -66,6 +66,8 @@
         position: absolute;
         top: $spacing-8;
         left: $spacing-24;
+        max-width: calc(100% - #{$spacing-24});
+        white-space: unset;
     }
 
     &.right {
@@ -78,6 +80,7 @@
         h4 {
             left: unset;
             right: $spacing-24;
+            text-align: end;
         }
     }
 }

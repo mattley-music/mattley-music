@@ -4,7 +4,16 @@
             "nothingUpcoming": "Kein Event Geplant"
         },
         "about": {
-            "title": "Über Mich"
+            "title": "About Me",
+            "what": "Was spiele ich?",
+            "music": "House, Dance & Hip Hop",
+            "whatNot": "Was spiele ich nicht?",
+            "musicNot": "(Deutscher) Schlager",
+            "location": "Standort",
+            "ulm": "In Ulm und um Ulm rum",
+            "whoAmI": "Wer bin ich?",
+            "matze": "Matze ({{age}} Jahre alt)",
+            "socials": "Socials"
         },
         "youtube": {
             "title": "In The Mix"
@@ -16,7 +25,7 @@
             "cotton": "100% Baumwolle",
             "order": "Bock auf eins?",
             "subject": "T-Shirt Bestellung",
-            "body": "Hallo Matze du geile Sau,\n\nich würde gerne eines dieser geilen T-Shirts bestellen.\n\nGibt es noch eines in Größe {{selectedSize}}?\n\nViele Grüße"
+            "body": "Yo Matze ✌ \n\nIch hätte gerne ein MATTLEY Shirt!\n\nHast du noch eines in der Größe {{selectedSize}}?\n\nIch würde das T-Shirt selber abholen (23 Euro)\n\nKönntest du mir das T-Shirt schicken? (26 Euro)\n\nViele Grüße"
         },
         "gallery": {
             "title": "Gallerie"

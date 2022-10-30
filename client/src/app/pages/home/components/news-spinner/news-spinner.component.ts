@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import gsap from "gsap";
-import { EventsService } from "../../../../services/events.service";
+import { ContentService } from "../../../../services/content.service";
 
 @Component({
     selector: "app-news-spinner",
@@ -16,7 +16,7 @@ export class NewsSpinnerComponent implements OnInit, OnDestroy {
     /**
      * Constructor
      */
-    constructor(public readonly eventService: EventsService) {}
+    constructor(public readonly eventService: ContentService) {}
 
     /**
      * Start the animation of the news spinner

@@ -29,7 +29,7 @@
     <app-section-header text="home.youtube.title" color="white"></app-section-header>
     <div class="section-content">
         <iframe
-            src="https://www.youtube.com/embed/ixrB924BGvc"
+            [src]="contentService.content['youtube'] | safe"
             title="In The Mix"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen

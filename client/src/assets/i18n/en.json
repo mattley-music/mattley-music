@@ -4,7 +4,16 @@
             "nothingUpcoming": "No Upcoming Events"
         },
         "about": {
-            "title": "About Me"
+            "title": "About Me",
+            "what": "What am I playing?",
+            "music": "House, Dance & Hip Hop",
+            "whatNot": "What am I not playing?",
+            "musicNot": "(Deutscher) Schlager",
+            "location": "Location",
+            "ulm": "In Ulm and around Ulm",
+            "whoAmI": "Who am I?",
+            "matze": "Matze ({{age}} years old)",
+            "socials": "Socials"
         },
         "youtube": {
             "title": "In The Mix"
@@ -12,11 +21,11 @@
         "clothes": {
             "title": "Clothing",
             "shirt": "Mattley Shirt",
-            "description": "The blanks are made entirely of cotton and are verified by \"Fair Wair\", \"GRS\", \"GOTS\". Printed were\nthe shirts in the district of Biberach, so everything local!",
+            "description": "The blanks are made entirely of cotton and are verified by \"Fair Wair\", \"GRS\", \"GOTS\". Printed were\nthe shirts in the district of Biberach. Everything local!",
             "cotton": "100% Cotton",
             "order": "You want one?",
             "subject": "T-Shirt Order",
-            "body": "Hello Matze you horny sow,\n\nI would like to order one of these awesome t-shirts.\n\nIs there still one in size {{selectedSize}}?\n\nBest regards"
+            "body": "Yo Matze ✌ \n\nI would like to have a MATTLEY shirt!\n\nDo you still have one in size {{selectedSize}}?\n\nI would visit you to get the shirt (23 Euro)\n\nCould you send it to me? (26 Euro)\n\nBest regards"
         },
         "gallery": {
             "title": "Gallery"

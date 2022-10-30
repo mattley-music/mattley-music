@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { EventsService } from "../../../../services/events.service";
+import { ContentService } from "../../../../services/content.service";
 
 @Component({
     selector: "app-others",
@@ -11,5 +11,5 @@ export class OthersComponent {
      * Constructor
      * @param eventService
      */
-    constructor(public readonly eventService: EventsService) {}
+    constructor(public readonly eventService: ContentService) {}
 }

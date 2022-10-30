@@ -71,21 +71,48 @@
         position: absolute;
         right: 0;
         top: 0;
-        width: 4rem;
-        height: 4rem;
+        padding: 2rem;
         background: rgba(0, 0, 0, 0.5);
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
-    .fullscreen-content {
+    .gallery-glider {
         position: absolute;
         left: 0;
         top: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
+        width: 100vw;
+        height: 100vh;
+
+        .images {
+            height: 100%;
+
+            & > img {
+                height: 100vh;
+                object-fit: contain;
+            }
+        }
+
+        .glide__track {
+            height: 100%;
+        }
+
+        .glide__arrow {
+            border: none;
+            background: $blue;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .glide__arrow--left {
+            left: 2rem;
+        }
+
+        .glide__arrow--right {
+            right: 2rem;
+        }
     }
 }
 

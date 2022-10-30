@@ -1,21 +1,18 @@
-import { Component } from "@angular/core";
+import { AfterViewInit, Component } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 import gsap from "gsap";
+import Glide from "@glidejs/glide";
 
 @Component({
     selector: "app-gallery",
     templateUrl: "./gallery.component.html",
     styleUrls: ["./gallery.component.scss"],
 })
-export class GalleryComponent {
-    /**
-     * The value for the selected image if nothing is selected
-     */
-    public readonly noSelection = -2;
+export class GalleryComponent implements AfterViewInit {
     /**
      * The value for the selected image if video is selected
      */
-    public readonly video = -1;
+    public readonly video = 6;
     /**
      * The images that are shown besides the video
      */
@@ -23,7 +20,7 @@ export class GalleryComponent {
     /**
      * The currently selected image
      */
-    public selectedImage = new BehaviorSubject<number>(this.noSelection);
+    public showGallery = new BehaviorSubject<boolean>(false);
     /**
      * The video player (required for animation)
      */
@@ -32,12 +29,32 @@ export class GalleryComponent {
      * The timeline for animating the gallery
      */
     private timeline?: gsap.core.Timeline;
+    /**
+     * GlideJS instance
+     */
+    private glide?: Glide.Properties;
 
     /**
      * Constructor
      */
     constructor() {
-        this.selectedImage.subscribe(this.lockScrolling);
+        this.showGallery.subscribe(this.lockScrolling);
+    }
+
+    /**
+     * Initialize the carousel
+     */
+    public ngAfterViewInit(): void {
+        this.glide = new Glide(".gallery-glider", {
+            type: "carousel",
+            startAt: 0,
+            perView: 1,
+            keyboard: true,
+            swipeThreshold: 1,
+            dragThreshold: 1,
+            gap: 16,
+            focusAt: "center",
+        }).mount();
     }
 
     /**
@@ -46,6 +63,20 @@ export class GalleryComponent {
     public collectVideoPlayer = (): void => {
         this.videoPlayer = document.getElementById(`video-player`) as HTMLVideoElement;
         this.prepareAnimation();
+    };
+
+    /**
+     * Show fullscreen at a given slide
+     * @param startAt The index of the slide that shall be shown
+     */
+    public openGallery = (startAt: number): void => {
+        this.showGallery.next(true);
+
+        setTimeout(() =>
+            this.glide?.update({
+                startAt,
+            }),
+        );
     };
 
     /**
@@ -67,7 +98,7 @@ export class GalleryComponent {
     /**
      * Disables scrolling while an image is selected
      */
-    private lockScrolling = (value: number): void => {
-        document.documentElement.style.overflow = value === this.noSelection ? "auto" : "hidden";
+    private lockScrolling = (showGallery: boolean): void => {
+        document.documentElement.style.overflow = showGallery ? "hidden" : "auto";
     };
 }

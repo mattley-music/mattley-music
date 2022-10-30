@@ -25,7 +25,7 @@
             text-anchor="middle"
             xlink:href="#textCircle"
         >
-            {{ event.date.valueOf() | date: "shortDate" }} {{ event.descriptionShort }}
+            {{ event.date.valueOf() | date: "mediumDate" }} {{ event.descriptionShort }}
         </textPath>
         <textPath startOffset="50%" text-anchor="middle" xlink:href="#textCircle">+++</textPath>
     </text>

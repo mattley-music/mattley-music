@@ -1,5 +1,6 @@
 import { AfterViewInit, Component } from "@angular/core";
 import Glide from "@glidejs/glide";
+import { ContentService } from "../../../../services/content.service";
 
 @Component({
     selector: "app-spotify",
@@ -10,13 +11,19 @@ export class SpotifyComponent implements AfterViewInit {
     /**
      * The playlists that shall be shown
      */
-    public readonly playlists = [
-        "5zD1Omh2VmrNGsKeB8gfob",
-        "2wwzCQnxslrV1Phqrky7Zo",
-        "0oSmSUsSR9jDO5C0gl5Xbm",
-        "0A0SyCbhsX2sNV4RAw5kfc",
-        "0edbTDrtFiVwn8czqXAl9M",
-    ];
+    public readonly playlists = ["playlist1", "playlist2", "playlist3", "playlist4", "playlist5"];
+
+    /**
+     * Constructor
+     */
+    constructor(private contentService: ContentService) {}
+
+    /**
+     * Get the spotify link for given playlist
+     */
+    public getSpotifyLink(key: string): string {
+        return `https://open.spotify.com/embed/playlist/${this.contentService.content[key]}?utm_source=generator&theme=0`;
+    }
 
     /**
      * Initialize the carousel

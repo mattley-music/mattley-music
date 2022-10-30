@@ -10,17 +10,16 @@ import { TranslateService } from "@ngx-translate/core";
 export class ClothesComponent implements AfterViewInit {
     /**
      * The ids of the clothing images
-     * TODO: ipad sizing
      */
     public images = [0, 1, 2, 3];
     /**
      * The available sizes
      */
-    public sizes = ["S", "M", "L", "XL"];
+    public sizes = ["XS", "S", "M", "L", "XL"];
     /**
      * The selected size
      */
-    public selectedSize = "S";
+    public selectedSize = "M";
     /**
      * The content for the prefilled E-Mail
      */

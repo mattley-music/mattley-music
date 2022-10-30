@@ -4,30 +4,41 @@
         alt="img{{ image }}"
         class="img-responsive"
         src="assets/img/gallery/small/{{ image }}.jpg"
-        (click)="selectedImage.next(image)"
+        (click)="openGallery(image)"
     />
 </div>
 <div id="video-preview" class="preview">
-    <video
-        id="video-player"
-        loop
-        (loadeddata)="collectVideoPlayer()"
-        (click)="selectedImage.next(video)"
-        [muted]="'muted'"
-    >
+    <video id="video-player" loop (loadeddata)="collectVideoPlayer()" (click)="openGallery(video)" [muted]="'muted'">
         <source src="assets/img/gallery/video.mp4" type="video/mp4" />
     </video>
 </div>
-<div *ngIf="selectedImage.value !== noSelection" class="image-overlay">
-    <img
-        class="fullscreen-content"
-        *ngIf="selectedImage.value >= 0"
-        draggable="false"
-        src="assets/img/gallery/{{ selectedImage.value }}.jpg"
-        alt="Big Image"
-    />
-    <video class="fullscreen-content" *ngIf="selectedImage.value === video" autoplay loop controls>
-        <source src="assets/img/gallery/video.mp4" type="video/mp4" />
-    </video>
-    <span class="fullscreen-close" (click)="selectedImage.next(noSelection)">X</span>
+<div [style.display]="showGallery.value ? 'block' : 'none'" class="image-overlay">
+    <div class="gallery-glider glide">
+        <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides images">
+                <img
+                    *ngFor="let image of images"
+                    draggable="false"
+                    src="assets/img/gallery/{{ image }}.jpg"
+                    alt="Big Image"
+                />
+                <video controls>
+                    <source src="assets/img/gallery/video.mp4" type="video/mp4" />
+                </video>
+            </ul>
+        </div>
+        <div class="glide__arrows" data-glide-el="controls">
+            <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><</button>
+            <button class="glide__arrow glide__arrow--right" data-glide-dir=">">></button>
+        </div>
+        <div class="glide__bullets" data-glide-el="controls[nav]">
+            <button
+                *ngFor="let _ of images; let i = index"
+                class="glide__bullet"
+                [attr.data-glide-dir]="'=' + i"
+            ></button>
+            <button class="glide__bullet" [attr.data-glide-dir]="'=' + video"></button>
+        </div>
+    </div>
+    <span class="fullscreen-close" (click)="showGallery.next(false)">X</span>
 </div>

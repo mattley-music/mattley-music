@@ -6,12 +6,12 @@ import { HomeComponent } from "./pages/home/home.component";
 import { SectionHeaderComponent } from "./pages/home/components/section-header/section-header.component";
 import { TranslateLoader, TranslateModule, TranslateService } from "@ngx-translate/core";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
-import { LOCATION_INITIALIZED, LocationStrategy, registerLocaleData } from "@angular/common";
+import { LOCATION_INITIALIZED, registerLocaleData } from "@angular/common";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { AboutComponent } from "./pages/home/components/about/about.component";
 import { AboutInfoComponent } from "./pages/home/components/about-info/about-info.component";
 import { NewsSpinnerComponent } from "./pages/home/components/news-spinner/news-spinner.component";
-import { EventsService } from "./services/events.service";
+import { ContentService } from "./services/content.service";
 import { ClothesComponent } from "./pages/home/components/clothes/clothes.component";
 import { ButtonComponent } from "./components/button/button.component";
 import { OthersComponent } from "./pages/home/components/others/others.component";
@@ -57,7 +57,7 @@ gsap.registerPlugin(ScrollTrigger);
             loader: {
                 provide: TranslateLoader,
                 useFactory: HttpLoaderFactory,
-                deps: [HttpClient, LocationStrategy],
+                deps: [HttpClient],
             },
         }),
     ],
@@ -65,7 +65,7 @@ gsap.registerPlugin(ScrollTrigger);
         {
             provide: APP_INITIALIZER,
             useFactory: AppInitializerFactory,
-            deps: [EventsService, TranslateService, Injector],
+            deps: [ContentService, TranslateService, Injector],
             multi: true,
         },
         { provide: LOCALE_ID, useValue: browserLanguage },
@@ -77,19 +77,17 @@ export class AppModule {}
 /**
  * Required for translations
  */
-export function HttpLoaderFactory(http: HttpClient, locationStrategy: LocationStrategy) {
-    const loader = new TranslateHttpLoader(http);
-    loader.prefix = `${locationStrategy.getBaseHref()}assets/i18n/`;
-    return loader;
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
 
 /**
  * Wait for the application to load the translations and events first
  */
-export function AppInitializerFactory(eventsService: EventsService, translate: TranslateService, injector: Injector) {
+export function AppInitializerFactory(contentService: ContentService, translate: TranslateService, injector: Injector) {
     return () =>
         new Promise<any>((resolve: any) => {
-            const eventsInitialized = eventsService.initialize();
+            const eventsInitialized = contentService.initialize();
             const locationInitialized = injector.get(LOCATION_INITIALIZED, Promise.resolve(null));
             Promise.allSettled([eventsInitialized, locationInitialized]).then(() => {
                 translate.setDefaultLang("en");

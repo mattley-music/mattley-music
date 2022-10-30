@@ -60,6 +60,11 @@
             fill: $purple;
         }
     }
+
+    h3 {
+        max-width: 100%;
+        white-space: unset;
+    }
 }
 
 @media only screen and (max-width: $width-1) {

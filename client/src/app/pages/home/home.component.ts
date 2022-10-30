@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { ContentService } from "../../services/content.service";
 
 @Component({
     selector: "app-home",
@@ -18,7 +19,7 @@ export class HomeComponent {
     /**
      * Constructor
      */
-    constructor() {
+    constructor(public contentService: ContentService) {
         document.addEventListener("scroll", () => {
             clearTimeout(this.scrollTimeout);
             this.scrollTimeout = setTimeout(this.scrollToSection, 1000);

@@ -7,30 +7,42 @@ import * as dayjs from "dayjs";
 @Injectable({
     providedIn: "root",
 })
-export class EventsService {
+export class ContentService {
     /**
      * The upcoming events
      */
     public events: EventsModel[] = [];
+    /**
+     * The dynamic content (used for spotify and yt embeds)
+     */
+    public content: { [key: string]: string } = {};
 
     /**
      * Constructor
      */
-    public initialize(): Promise<void> {
+    public async initialize(): Promise<void> {
+        const events = await this.loadSheetData<ApiEventsModel[]>("Events");
+        this.transformEventData(events);
+        this.content = (await this.loadSheetData<{ [key: string]: string }[]>("Dynamic Content"))[0];
+    }
+
+    /**
+     * Load sheet data
+     */
+    private loadSheetData<T>(sheetName: string): Promise<T> {
         return new Promise((resolve) => {
             SheetReader(
                 {
                     sheetId: "1C-UVXCoMXOL4aQo4u5QgohGxqBDPst9zvHvXLb2kVy8",
                     apiKey: "AIzaSyC7AhpCBFGM3u2967xINiu09pBg8zxlSEI",
-                    sheetName: "Events",
+                    sheetName,
                 },
-                (events: ApiEventsModel[]) => {
-                    this.transformData(events);
-                    resolve();
+                (data: T) => {
+                    resolve(data);
                 },
                 (error: unknown) => {
-                    console.error("EventsService", error);
-                    resolve();
+                    console.error("ContentService", error);
+                    resolve({} as T);
                 },
             );
         });
@@ -46,9 +58,9 @@ export class EventsService {
     /**
      * Transforms the event data
      */
-    private transformData = (data: ApiEventsModel[]) => {
+    private transformEventData = (data: ApiEventsModel[]) => {
         // Map the data
-        const now = dayjs();
+        const now = dayjs().hour(-1);
         for (const event of data) {
             const newEvent: EventsModel = {
                 ...event,
