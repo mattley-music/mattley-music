@@ -8,23 +8,23 @@
 <div class="about-map">
     <!-- Left side -->
     <div>
-        <app-about-info [height]="130" description="home.about.what">
-            <h3>{{ "home.about.music" | translate }}</h3>
+        <app-about-info [height]="130" description="{{'home.about.music' | translate }}">
+            <h3>{{ "home.about.what" | translate }}</h3>
         </app-about-info>
-        <app-about-info [height]="-130" description="home.about.whatNot">
-            <h3>{{ "home.about.musicNot" | translate }}</h3>
+        <app-about-info [height]="-130" description="{{'home.about.musicNot' | translate }}">
+            <h3>{{ "home.about.whatNot" | translate }}</h3>
         </app-about-info>
     </div>
 
     <!-- Right side -->
     <div>
-        <app-about-info [right]="true" [height]="100" description="home.about.location">
-            <h3>{{ "home.about.ulm" | translate }}</h3>
+        <app-about-info [right]="true" [height]="100" description="{{ 'home.about.ulm' | translate }}">
+            <h3>{{ "home.about.location" | translate }}</h3>
         </app-about-info>
-        <app-about-info [right]="true" [height]="-50" description="home.about.whoAmI">
-            <h3>{{ "home.about.matze" | translate: { age } }}</h3>
+        <app-about-info [right]="true" [height]="20" description="{{ 'home.about.matze' | translate: { age } }}">
+            <h3>{{ "home.about.whoAmI" | translate }}</h3>
         </app-about-info>
-        <app-about-info [right]="true" [height]="-150" description="home.about.socials">
+        <app-about-info [right]="true" [height]="-150" description="{{ 'home.about.socials' | translate }}">
             <div class="socials">
                 <a href="https://www.youtube.com/channel/UCg3I-WMBf9B-esRndLKx17g" target="_blank">
                     <svg>

@@ -21,14 +21,15 @@ import { SafePipe } from "./pipes/safe.pipe";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import localeDe from "@angular/common/locales/de";
+import dayjs from "dayjs";
 
 // Register additional languages (required for angular pipes, e.g. date pipe)
 registerLocaleData(localeDe);
 
 // Get the current browser language
-const availableLanguages = ["de", "en"];
-let browserLanguage = navigator.language.split("-")[0];
-if (!availableLanguages.includes(browserLanguage)) browserLanguage = "en";
+// const availableLanguages = ["de", "en"];
+let browserLanguage = "de"; // navigator.language.split("-")[0];
+// if (!availableLanguages.includes(browserLanguage)) browserLanguage = "en";
 
 // GSAP Plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -53,7 +54,7 @@ gsap.registerPlugin(ScrollTrigger);
         AppRoutingModule,
         HttpClientModule,
         TranslateModule.forRoot({
-            defaultLanguage: "en",
+            defaultLanguage: "de",
             loader: {
                 provide: TranslateLoader,
                 useFactory: HttpLoaderFactory,
@@ -78,7 +79,7 @@ export class AppModule {}
  * Required for translations
  */
 export function HttpLoaderFactory(http: HttpClient) {
-    return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
+    return new TranslateHttpLoader(http, "./assets/i18n/", `.json?hash=${dayjs().format()}`);
 }
 
 /**
@@ -90,7 +91,7 @@ export function AppInitializerFactory(contentService: ContentService, translate:
             const eventsInitialized = contentService.initialize();
             const locationInitialized = injector.get(LOCATION_INITIALIZED, Promise.resolve(null));
             Promise.allSettled([eventsInitialized, locationInitialized]).then(() => {
-                translate.setDefaultLang("en");
+                translate.setDefaultLang("de");
                 translate.use(browserLanguage).subscribe({
                     complete: () => resolve(),
                 });
