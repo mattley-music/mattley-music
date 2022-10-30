@@ -8,7 +8,7 @@
             "what": "What am I playing?",
             "music": "House, Dance & Hip Hop",
             "whatNot": "What am I not playing?",
-            "musicNot": "(Deutscher) Schlager",
+            "musicNot": "Schlager",
             "location": "Location",
             "ulm": "In Ulm and around Ulm",
             "whoAmI": "Who am I?",
@@ -21,7 +21,7 @@
         "clothes": {
             "title": "Clothing",
             "shirt": "Mattley Shirt",
-            "description": "The blanks are made entirely of cotton and are verified by \"Fair Wair\", \"GRS\", \"GOTS\". Printed were\nthe shirts in the district of Biberach. Everything local!",
+            "description": "The blanks are made entirely of cotton and are verified by \"Fair Wair\", \"GRS\" and \"GOTS\". Printed were\nthe shirts in the district of Biberach. Everything local!",
             "cotton": "100% Cotton",
             "order": "You want one?",
             "subject": "T-Shirt Order",
