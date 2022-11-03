@@ -8,11 +8,17 @@
     />
 </div>
 <div id="video-preview" class="preview">
-    <video id="video-player" loop (loadeddata)="collectVideoPlayer()" (click)="openGallery(video)" [muted]="'muted'">
+    <video
+        id="preview-video-player"
+        loop
+        (loadeddata)="preparePreviewVideo()"
+        (click)="openGallery(video)"
+        [muted]="'muted'"
+    >
         <source src="assets/img/gallery/video.mp4" type="video/mp4" />
     </video>
 </div>
-<div [style.display]="showGallery.value ? 'block' : 'none'" class="image-overlay">
+<div [style.display]="$showFullscreen.value ? 'block' : 'none'" class="image-overlay">
     <div class="gallery-glider glide">
         <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides images">
@@ -22,7 +28,7 @@
                     src="assets/img/gallery/{{ image }}.jpg"
                     alt="Big Image"
                 />
-                <video controls>
+                <video  id="big-video-player" controls>
                     <source src="assets/img/gallery/video.mp4" type="video/mp4" />
                 </video>
             </ul>
@@ -40,5 +46,5 @@
             <button class="glide__bullet" [attr.data-glide-dir]="'=' + video"></button>
         </div>
     </div>
-    <span class="fullscreen-close" (click)="showGallery.next(false)">X</span>
+    <span class="fullscreen-close" (click)="$showFullscreen.next(false)">X</span>
 </div>

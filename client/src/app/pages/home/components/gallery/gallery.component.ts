@@ -18,13 +18,13 @@ export class GalleryComponent implements AfterViewInit {
      */
     public readonly images = [0, 1, 2, 3, 4, 5];
     /**
-     * The currently selected image
+     * True if the fullscreen is shown
      */
-    public showGallery = new BehaviorSubject<boolean>(false);
+    public $showFullscreen = new BehaviorSubject<boolean>(false);
     /**
-     * The video player (required for animation)
+     * The preview video player (required for animation)
      */
-    private videoPlayer?: HTMLVideoElement;
+    private previewVideoPlayer?: HTMLVideoElement;
     /**
      * The timeline for animating the gallery
      */
@@ -38,7 +38,7 @@ export class GalleryComponent implements AfterViewInit {
      * Constructor
      */
     constructor() {
-        this.showGallery.subscribe(this.lockScrolling);
+        this.$showFullscreen.subscribe(this.onFullscreenToggle);
     }
 
     /**
@@ -58,31 +58,10 @@ export class GalleryComponent implements AfterViewInit {
     }
 
     /**
-     * Collect the video player for animation
+     * Collect the preview video player for animation
      */
-    public collectVideoPlayer = (): void => {
-        this.videoPlayer = document.getElementById(`video-player`) as HTMLVideoElement;
-        this.prepareAnimation();
-    };
-
-    /**
-     * Show fullscreen at a given slide
-     * @param startAt The index of the slide that shall be shown
-     */
-    public openGallery = (startAt: number): void => {
-        this.showGallery.next(true);
-
-        setTimeout(() =>
-            this.glide?.update({
-                startAt,
-            }),
-        );
-    };
-
-    /**
-     * Prepare the gallery animation
-     */
-    private prepareAnimation = (): void => {
+    public preparePreviewVideo = (): void => {
+        this.previewVideoPlayer = document.getElementById(`preview-video-player`) as HTMLVideoElement;
         this.timeline = gsap.timeline({
             scrollTrigger: {
                 trigger: "#gallery",
@@ -91,14 +70,36 @@ export class GalleryComponent implements AfterViewInit {
         });
         this.timeline.to(`#video-player`, {
             duration: 0.1,
-            onComplete: this.videoPlayer?.play.bind(this.videoPlayer) as () => void,
+            onComplete: this.previewVideoPlayer?.play.bind(this.previewVideoPlayer) as () => void,
         });
     };
 
     /**
-     * Disables scrolling while an image is selected
+     * Show fullscreen at a given slide
+     * @param startAt The index of the slide that shall be shown
      */
-    private lockScrolling = (showGallery: boolean): void => {
+    public openGallery = (startAt: number): void => {
+        this.$showFullscreen.next(true);
+
+        setTimeout(async () => {
+            this.glide?.update({
+                startAt,
+            });
+        });
+    };
+
+    /**
+     * React to fullscreen toggles
+     */
+    private onFullscreenToggle = async (showGallery: boolean): Promise<void> => {
+        // Enable/Disable scrolling
         document.documentElement.style.overflow = showGallery ? "hidden" : "auto";
+
+        // Pause all videos and start/pause the preview depending on the state
+        const videos = document.getElementsByTagName("video");
+        for (let i = 0; i < videos.length; i++) {
+            await videos[i]?.pause();
+        }
+        showGallery ? await this.previewVideoPlayer?.pause() : await this.previewVideoPlayer?.play();
     };
 }
