@@ -11,7 +11,8 @@
     <video
         id="preview-video-player"
         loop
-        (loadeddata)="preparePreviewVideo()"
+        autoplay
+        playsinline
         (click)="openGallery(video)"
         [muted]="'muted'"
     >

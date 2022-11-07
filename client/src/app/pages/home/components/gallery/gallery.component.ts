@@ -1,6 +1,5 @@
 import { AfterViewInit, Component } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
-import gsap from "gsap";
 import Glide from "@glidejs/glide";
 
 @Component({
@@ -25,10 +24,6 @@ export class GalleryComponent implements AfterViewInit {
      * The preview video player (required for animation)
      */
     private previewVideoPlayer?: HTMLVideoElement;
-    /**
-     * The timeline for animating the gallery
-     */
-    private timeline?: gsap.core.Timeline;
     /**
      * GlideJS instance
      */
@@ -56,23 +51,6 @@ export class GalleryComponent implements AfterViewInit {
             focusAt: "center",
         }).mount();
     }
-
-    /**
-     * Collect the preview video player for animation
-     */
-    public preparePreviewVideo = (): void => {
-        this.previewVideoPlayer = document.getElementById(`preview-video-player`) as HTMLVideoElement;
-        this.timeline = gsap.timeline({
-            scrollTrigger: {
-                trigger: "#gallery",
-                start: "top top+=100",
-            },
-        });
-        this.timeline.to(`#video-player`, {
-            duration: 0.1,
-            onComplete: this.previewVideoPlayer?.play.bind(this.previewVideoPlayer) as () => void,
-        });
-    };
 
     /**
      * Show fullscreen at a given slide
