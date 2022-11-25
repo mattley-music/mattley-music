@@ -1,0 +1,25 @@
+@import "vars";
+
+#privacy-policy {
+    height: auto;
+
+    h2 {
+        margin: $spacing-48 0 $spacing-24;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    h3 {
+        margin: $spacing-24 0 $spacing-12;
+    }
+
+    h4 {
+        margin: $spacing-16 0 $spacing-8;
+    }
+
+    ul {
+        padding-left: $spacing-24;
+    }
+}

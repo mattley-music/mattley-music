@@ -22,6 +22,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import localeDe from "@angular/common/locales/de";
 import dayjs from "dayjs";
+import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 
 // Register additional languages (required for angular pipes, e.g. date pipe)
 registerLocaleData(localeDe);
@@ -48,6 +49,7 @@ gsap.registerPlugin(ScrollTrigger);
         GalleryComponent,
         SpotifyComponent,
         SafePipe,
+        PrivacyPolicyComponent,
     ],
     imports: [
         BrowserModule,

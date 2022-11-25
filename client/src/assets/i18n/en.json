@@ -48,5 +48,9 @@
                 "back": "Back"
             }
         }
+    },
+    "privacyPolicy": {
+        "title": "Privacy Policy",
+        "clickHere": "Click here..."
     }
 }
