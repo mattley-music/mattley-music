@@ -1,20 +1,37 @@
 import { Component } from "@angular/core";
 import { ContentService } from "../../services/content.service";
+import { trigger, state, style, animate, transition } from '@angular/animations';
+
 
 @Component({
     selector: "app-home",
     templateUrl: "./home.component.html",
     styleUrls: ["./home.component.scss"],
+    animations: [
+        trigger('slideInFromTop', [
+            state('true', style({
+                opacity: 1,
+                transform: 'translateY(0)'
+            })),
+            state('false', style({
+                opacity: 0,
+                transform: 'translateY(-100%)'
+            })),
+            transition('false <=> true', animate('0.5s ease-in-out'))
+        ])
+    ]
 })
 export class HomeComponent {
     /**
      * The shown sections
      */
-    private sections = ["about", "youtube", "clothes", "gallery", "spotify", "others"];
+    private sections = ["events", "about", "youtube", "clothes", "gallery", "spotify", "others"];
     /**
      * The timeout reference for the scroll snapping
      */
     private scrollTimeout = NaN;
+    isMenuOpen: boolean = false;
+
 
     /**
      * Constructor
@@ -29,9 +46,9 @@ export class HomeComponent {
     /**
      * Scroll into a section
      */
-    public scrollTo(section: string): void {
+    public scrollTo(section: string, behavior: ScrollBehavior = "smooth"): void {
         const element = document.getElementById(section);
-        if (element) element.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (element) element.scrollIntoView({ behavior: behavior, block: "start" });
     }
 
     /**
@@ -44,4 +61,9 @@ export class HomeComponent {
             if (Math.abs(relativePosition) < 200) this.scrollTo(sectionId);
         }
     };
+
+    toggleMenu() {
+        this.isMenuOpen = !this.isMenuOpen;
+    }
+
 }

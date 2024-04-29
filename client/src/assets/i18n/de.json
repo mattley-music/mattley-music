@@ -3,6 +3,11 @@
         "intro": {
             "nothingUpcoming": "Kein Event Geplant"
         },
+        "events": {
+            "title": "Events",
+            "morebutton": "Mehr Events",
+            "lessbutton": "Weniger Events"
+        },
         "about": {
             "title": "About Me",
             "what": "Was spiele ich?",

@@ -11,9 +11,6 @@
 }
 
 #intro {
-    position: fixed;
-    top: 0;
-    left: 0;
     height: 100vh;
     flex-direction: column;
     justify-content: space-between;
@@ -23,27 +20,56 @@
     }
 
     .logo {
-        height: 5rem;
+        height: 5.5rem;
+    }
+
+    .burger-menu {
+        cursor: pointer;
+        top: 40px;
+        right: 40px;
+        transition: transform 0.7s ease;
+    }
+
+    .burger-flipped {
+        transform: rotate(90deg);
+    }
+
+    .burger-line {
+        width: 30px;
+        height: 5px;
+        background-color: #fff; /* Change color to white */
+        margin: 5px 0;
+    }
+
+    .menu-wrapper-wrapper {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .menu-wrapper {
+        overflow: hidden; /* Hide the text outside the region of the div */
     }
 
     .menu {
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
+        text-align: right;
+    }
 
-        a {
-            user-select: none;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: $h3;
-            color: $white;
-            cursor: pointer;
-            margin-bottom: $spacing-16;
-        }
+    .menu a {
+        user-select: none;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: $h3;
+        color: $white;
+        cursor: pointer;
+        margin-bottom: $spacing-16;
     }
 
     .background {
-        position: absolute;
+        position: fixed;
         left: 0;
         top: 0;
         width: 100%;
@@ -53,8 +79,26 @@
     }
 }
 
+#events {
+    min-height: 100vh;
+    height: auto;
+
+    .news-spinner {
+        display: flex;
+        position: absolute;
+        right: 0;
+        padding-right: inherit;
+        top: -7rem;
+        z-index: 10;
+
+        & > * {
+            width: 14rem;
+            height: 14rem;
+        }
+    }
+}
+
 #about {
-    margin-top: 100vh;
     background: $white;
     cursor: pointer;
 

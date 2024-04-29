@@ -13,9 +13,17 @@ export class ButtonComponent {
     /**
      * The href the button leads to
      */
+    @Input() onClick?: () => void;
+    /**
+     * The href the button leads to
+     */
     @Input() href?: string;
+    /**
+     * The routerLink
+     */
+    @Input() routerLink?: string;
     /**
      * The color of the button
      */
-    @Input() color: "purple" | "blue" = "purple";
+    @Input() color: "purple" | "blue" | "white" = "purple";
 }

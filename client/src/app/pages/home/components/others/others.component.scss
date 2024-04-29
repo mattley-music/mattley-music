@@ -8,63 +8,29 @@
 
 .card {
     flex: 1 1 auto;
-    background: $white;
     padding: $spacing-32;
     margin-right: $spacing-32;
     overflow: auto;
 
-    h2 {
-        margin-bottom: $spacing-16;
-    }
-
-    .event {
-        display: flex;
-        padding: $spacing-16 0;
-        border-bottom: 1px solid black;
-        align-items: flex-start;
-        flex-direction: column;
-
-        &:first-of-type {
-            * {
-                fill: $purple;
-                font-weight: 600;
-            }
-        }
-
-        &:last-child {
-            border-bottom: none;
-        }
-
-        & > div {
-            display: flex;
-            margin-right: $spacing-32;
-            margin-bottom: $spacing-8;
-
-            &:last-child {
-                margin-bottom: 0;
-            }
-        }
-
-        svg {
-            flex: 0 0 auto;
-            width: $spacing-24;
-            height: $spacing-24;
-            margin-right: $spacing-16;
-        }
-    }
-
     &:last-child {
         margin-right: 0;
     }
+
+    .bottom-wrapper {
+        position: absolute;
+        bottom: 40px;
+    }
 }
 
-h3 {
-    margin-top: $spacing-16;
+h3, p {
+    margin-top: $spacing-8;
     margin-bottom: $spacing-8;
+    color: $white;
 }
 
-.button {
-    margin-top: $spacing-32;
+h2 {
+    font-size: 40px;
+    color: $white;
 }
 
 @media only screen and (max-width: 1000px) {

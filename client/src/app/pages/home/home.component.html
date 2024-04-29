@@ -1,23 +1,48 @@
 <!-- The intro -->
 <section id="intro">
-    <img class="background" src="assets/img/intro.png" alt="Intro" />
+    <img class="background" src="../../../assets/img/intro.jpeg" alt="Intro" />
     <div class="row">
         <img class="logo" src="assets/img/logo.svg" alt="Logo" />
-        <div class="menu">
-            <a (click)="scrollTo('about')">{{ "home.about.title" | translate }}</a>
-            <a (click)="scrollTo('youtube')">{{ "home.youtube.title" | translate }}</a>
-            <a (click)="scrollTo('clothes')">{{ "home.clothes.title" | translate }}</a>
-            <a (click)="scrollTo('gallery')">{{ "home.gallery.title" | translate }}</a>
-            <a (click)="scrollTo('spotify')">{{ "home.spotify.title" | translate }}</a>
+
+        <div class="menu-wrapper-wrapper">
+            <div (click)="toggleMenu()" class="burger-menu" [ngClass]="{ 'burger-flipped': isMenuOpen }">
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+            </div>
+
+            <div class="menu-wrapper">
+                <div
+                    (click)="toggleMenu()"
+                    class="menu"
+                    [ngClass]="{ 'menu-visible': isMenuOpen }"
+                    [@slideInFromTop]="isMenuOpen.toString()"
+                >
+                    <a (click)="scrollTo('events')">{{ "home.events.title" | translate }}</a>
+                    <a (click)="scrollTo('about')">{{ "home.about.title" | translate }}</a>
+                    <a (click)="scrollTo('youtube')">{{ "home.youtube.title" | translate }}</a>
+                    <a (click)="scrollTo('clothes')">{{ "home.clothes.title" | translate }}</a>
+                    <a (click)="scrollTo('gallery')">{{ "home.gallery.title" | translate }}</a>
+                    <a (click)="scrollTo('spotify')">{{ "home.spotify.title" | translate }}</a>
+                </div>
+            </div>
         </div>
+    </div>
+</section>
+
+<!-- Events -->
+<section id="events">
+    <div class="news-spinner">
+        <app-news-spinner (click)="scrollTo('events')"></app-news-spinner>
+    </div>
+    <app-section-header text="home.events.title" color="white"></app-section-header>
+    <div class="section-content">
+        <app-events (scrollToEvents)="scrollTo('events', 'auto')"></app-events>
     </div>
 </section>
 
 <!-- About me -->
 <section id="about">
-    <div class="news-spinner">
-        <app-news-spinner (click)="scrollTo('others')"></app-news-spinner>
-    </div>
     <app-section-header text="home.about.title"></app-section-header>
     <div class="section-content">
         <app-about></app-about>

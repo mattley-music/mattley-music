@@ -21,6 +21,9 @@ export class NewsSpinnerComponent implements OnInit, OnDestroy {
     /**
      * Start the animation of the news spinner
      */
+
+    /**
+     * Old Animation version
     public ngOnInit(): void {
         this.buyTimeline = gsap.timeline({
             repeat: -1,
@@ -37,7 +40,20 @@ export class NewsSpinnerComponent implements OnInit, OnDestroy {
             duration: 4,
         });
     }
+    **/
 
+    public ngOnInit(): void {
+        this.buyTimeline = gsap.timeline({
+            repeat: -1,
+            repeatDelay: 0,
+            delay: 0,
+        });
+        this.buyTimeline.to("#news-spinner", {
+            rotate: 360, // Rotate 360 degrees
+            duration: 14, // Duration of rotation in seconds
+            ease: "linear", // Linear easing for continuous rotation
+        });
+    }
     /**
      * Close the animation
      */

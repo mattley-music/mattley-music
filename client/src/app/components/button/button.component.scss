@@ -5,6 +5,8 @@
 }
 
 .button {
+    outline: none;
+    border: none;
     display: flex;
     padding: $spacing-8 $spacing-24;
     text-transform: uppercase;
@@ -18,5 +20,10 @@
 
     &.purple {
         background: $purple;
+    }
+
+    &.white {
+        color: $purple;
+        background: $white;
     }
 }

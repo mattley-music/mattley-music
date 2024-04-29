@@ -23,6 +23,9 @@ import gsap from "gsap";
 import localeDe from "@angular/common/locales/de";
 import dayjs from "dayjs";
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
+// Matze Module
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EventsComponent } from './pages/home/components/events/events.component';
 
 // Register additional languages (required for angular pipes, e.g. date pipe)
 registerLocaleData(localeDe);
@@ -50,9 +53,11 @@ gsap.registerPlugin(ScrollTrigger);
         SpotifyComponent,
         SafePipe,
         PrivacyPolicyComponent,
+        EventsComponent,
     ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         AppRoutingModule,
         HttpClientModule,
         TranslateModule.forRoot({

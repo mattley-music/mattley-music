@@ -1,0 +1,65 @@
+@import "vars";
+
+:host {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+}
+
+.card {
+    flex: 1 1 auto;
+    padding: $spacing-32;
+    margin-right: $spacing-32;
+    overflow: auto;
+
+    .bottom-wrapper {
+        position: absolute;
+        bottom: 40px;
+    }
+}
+
+.event-list {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+}
+
+td {
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 0 50px $black;
+}
+
+.row-top {
+    vertical-align: bottom;
+}
+
+.row-bottom {
+    vertical-align: top;
+}
+
+.day, .month {
+    text-align: right;
+    padding-right: 20px;
+}
+
+.description, .title {
+    text-align: left;
+}
+
+.day {
+    font-size: 40px;
+    font-weight: 800;
+    color: $purple;
+}
+
+.title {
+    font-size: 35px;
+}
+
+.description {
+}
+
+

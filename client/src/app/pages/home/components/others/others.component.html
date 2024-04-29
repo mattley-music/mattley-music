@@ -1,29 +1,4 @@
 <div class="card">
-    <h2>{{ "home.others.upcomingEvents.title" | translate }}<br /></h2>
-    <div class="event" *ngFor="let event of eventService.events">
-        <div>
-            <svg>
-                <use xlink:href="assets/img/icons.svg#date"></use>
-            </svg>
-            {{ event.date.valueOf() | date: "longDate" }} {{ event.name }}
-        </div>
-        <div>
-            <svg>
-                <use xlink:href="assets/img/icons.svg#info"></use>
-            </svg>
-            {{ event.descriptionLong }}
-        </div>
-    </div>
-    <div *ngIf="eventService.events.length <= 0" class="event">
-        <div>
-            <svg>
-                <use xlink:href="assets/img/icons.svg#info"></use>
-            </svg>
-            {{ "home.others.upcomingEvents.nothing" | translate }}
-        </div>
-    </div>
-</div>
-<div class="card">
     <h2>Mattley ({{ "home.others.legalNotice.title" | translate }})<br /></h2>
     <h3>{{ "home.others.legalNotice.representedBy" | translate }}</h3>
     <p>Matthias Schmid <br /></p>
@@ -34,6 +9,14 @@
     </p>
     <h3>{{ "home.others.legalNotice.contact" | translate }}</h3>
     <p>{{ "home.others.legalNotice.email" | translate }}: contact@mattleymusic.de</p>
-    <h3 routerLink="/privacy-policy">{{"privacyPolicy.title" | translate}}</h3>
-    <a routerLink="/privacy-policy">{{"privacyPolicy.clickHere" | translate}}</a>
+
+
+    <div class="bottom-wrapper">
+        <h3 routerLink="/privacy-policy">{{"privacyPolicy.title" | translate}}</h3>
+        <app-button
+            text="privacyPolicy.clickHere"
+            routerLink="/privacy-policy"
+            color="white"
+        ></app-button>
+    </div>
 </div>
