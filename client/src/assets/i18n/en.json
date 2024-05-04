@@ -5,8 +5,8 @@
         },
         "events": {
             "title": "Events",
-            "morebutton": "Show More",
-            "lessbutton": "Show Less"
+            "moreButton": "Show More",
+            "lessButton": "Show Less"
         },
         "about": {
             "title": "About Me",

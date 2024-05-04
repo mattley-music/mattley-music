@@ -10,7 +10,6 @@ import { LOCATION_INITIALIZED, registerLocaleData } from "@angular/common";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { AboutComponent } from "./pages/home/components/about/about.component";
 import { AboutInfoComponent } from "./pages/home/components/about-info/about-info.component";
-import { NewsSpinnerComponent } from "./pages/home/components/news-spinner/news-spinner.component";
 import { ContentService } from "./services/content.service";
 import { ClothesComponent } from "./pages/home/components/clothes/clothes.component";
 import { ButtonComponent } from "./components/button/button.component";
@@ -22,10 +21,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import localeDe from "@angular/common/locales/de";
 import dayjs from "dayjs";
-import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
+import { PrivacyPolicyComponent } from "./pages/privacy-policy/privacy-policy.component";
 // Matze Module
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EventsComponent } from './pages/home/components/events/events.component';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { EventsComponent } from "./pages/home/components/events/events.component";
 
 // Register additional languages (required for angular pipes, e.g. date pipe)
 registerLocaleData(localeDe);
@@ -45,7 +44,6 @@ gsap.registerPlugin(ScrollTrigger);
         SectionHeaderComponent,
         AboutComponent,
         AboutInfoComponent,
-        NewsSpinnerComponent,
         ClothesComponent,
         ButtonComponent,
         OthersComponent,

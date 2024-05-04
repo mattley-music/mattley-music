@@ -1,6 +1,6 @@
 // The colors
 $purple: #9629d9;
-$blue: #4C99C0;
+$blue: #4c99c0;
 $white: #ffffff;
 $black: #000000;
 $font-color: $black;
@@ -34,3 +34,15 @@ $shrink-offset: 200px;
 
 // Others
 $dot-size: 5px;
+
+// Dynamic variables
+:root {
+    --calculated-vertical-spacing: calc((100vw - 177vh) / 2);
+    --dynamic-vertical-spacing: max(4rem, var(--calculated-vertical-spacing));
+}
+
+@media only screen and (max-height: $height-1) {
+    :root {
+        --dynamic-vertical-spacing: max(4rem, var(--calculated-vertical-spacing));
+    }
+}

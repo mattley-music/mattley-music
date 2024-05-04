@@ -3,6 +3,10 @@
 #privacy-policy {
     height: auto;
 
+    * {
+        white-space: break-spaces;
+    }
+
     h2 {
         margin: $spacing-48 0 $spacing-24;
 

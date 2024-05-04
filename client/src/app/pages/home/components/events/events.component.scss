@@ -1,9 +1,9 @@
 @import "vars";
 
 :host {
-  width: 100%;
-  min-height: 100%;
-  display: flex;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
 }
 
 .card {
@@ -11,55 +11,60 @@
     padding: $spacing-32;
     margin-right: $spacing-32;
     overflow: auto;
-
-    .bottom-wrapper {
-        position: absolute;
-        bottom: 40px;
-    }
 }
 
 .event-list {
-    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    .day,
+    .month {
+        text-align: right;
+        padding-right: $spacing-24;
+    }
+
+    .description,
+    .title {
+        text-align: left;
+    }
+
+    .month,
+    .description,
+    .title {
+        color: $white;
+        font-weight: 600;
+        text-shadow: 0 0 50px $black;
+    }
+
+    .day {
+        font-size: 40px;
+        font-weight: 800;
+        color: $purple;
+    }
+
+    .month {
+        color: $white;
+        margin-bottom: $spacing-24;
+    }
+
+    .title {
+        font-size: 35px;
+        align-self: end;
+    }
+
+    .more-events {
+        margin-top: $spacing-24;
+    }
 }
 
-table {
-    width: 100%;
+@media only screen and (max-width: $width-3) {
+    .event-list {
+        .day {
+            font-size: 28px;
+        }
+
+        .title {
+            font-size: 25px;
+        }
+    }
 }
-
-td {
-    color: white;
-    font-weight: 600;
-    text-shadow: 0 0 50px $black;
-}
-
-.row-top {
-    vertical-align: bottom;
-}
-
-.row-bottom {
-    vertical-align: top;
-}
-
-.day, .month {
-    text-align: right;
-    padding-right: 20px;
-}
-
-.description, .title {
-    text-align: left;
-}
-
-.day {
-    font-size: 40px;
-    font-weight: 800;
-    color: $purple;
-}
-
-.title {
-    font-size: 35px;
-}
-
-.description {
-}
-
-

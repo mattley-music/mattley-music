@@ -10,72 +10,75 @@
     align-items: center;
 }
 
+.background {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+
+    filter: grayscale(0);
+    animation: backgroundAnimation 2000ms ease-in-out forwards;
+}
+
+@keyframes backgroundAnimation {
+    100% {
+        filter: grayscale(0.9);
+    }
+}
+
+.container {
+    position: absolute;
+    top: $spacing-48;
+    right: var(--dynamic-vertical-spacing);
+    display: flex;
+    align-items: center;
+}
+
+@media only screen and (max-width: $width-2) {
+    .background {
+    }
+}
+
+.loadingSpinner {
+    transform: rotate(90deg);
+
+    height: 7rem;
+    animation: loadingSpinnerAnimation 1600ms ease-in-out forwards;
+    animation-delay: 400ms;
+}
+
+@keyframes loadingSpinnerAnimation {
+    100% {
+        transform: rotate(810deg);
+    }
+}
+
+.logo-text {
+    height: 20px;
+    margin-right: 25px;
+    animation: textAnimation 400ms ease-out forwards;
+    animation-delay: 1800ms;
+}
+
+@keyframes textAnimation {
+    100% {
+        margin-right: -25px;
+    }
+}
+
 #intro {
     height: 100vh;
-    flex-direction: column;
-    justify-content: space-between;
+    animation: introAnimation 1600ms ease-in-out forwards;
+    animation-delay: 700ms;
+    padding: 0;
+}
 
-    .row {
-        justify-content: space-between;
-    }
-
-    .logo {
-        height: 5.5rem;
-    }
-
-    .burger-menu {
-        cursor: pointer;
-        top: 40px;
-        right: 40px;
-        transition: transform 0.7s ease;
-    }
-
-    .burger-flipped {
-        transform: rotate(90deg);
-    }
-
-    .burger-line {
-        width: 30px;
-        height: 5px;
-        background-color: #fff; /* Change color to white */
-        margin: 5px 0;
-    }
-
-    .menu-wrapper-wrapper {
-        display: flex;
-        align-items: flex-end;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .menu-wrapper {
-        overflow: hidden; /* Hide the text outside the region of the div */
-    }
-
-    .menu {
-        display: flex;
-        flex-direction: column;
-        text-align: right;
-    }
-
-    .menu a {
-        user-select: none;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: $h3;
-        color: $white;
-        cursor: pointer;
-        margin-bottom: $spacing-16;
-    }
-
-    .background {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        object-fit: cover;
+@keyframes introAnimation {
+    100% {
+        height: 0;
     }
 }
 
@@ -83,38 +86,14 @@
     min-height: 100vh;
     height: auto;
 
-    .news-spinner {
-        display: flex;
-        position: absolute;
-        right: 0;
-        padding-right: inherit;
-        top: -7rem;
-        z-index: 10;
-
-        & > * {
-            width: 14rem;
-            height: 14rem;
-        }
+    .events-content {
+        align-items: flex-start;
     }
 }
 
 #about {
     background: $white;
     cursor: pointer;
-
-    .news-spinner {
-        display: flex;
-        position: absolute;
-        right: 0;
-        padding-right: inherit;
-        top: -7rem;
-        z-index: 10;
-
-        & > * {
-            width: 14rem;
-            height: 14rem;
-        }
-    }
 }
 
 #youtube {
@@ -153,32 +132,47 @@
     background: $purple;
 }
 
-@media only screen and (max-width: $width-2) {
-    #about {
-        .news-spinner {
-            top: calc(-12rem - $spacing-24);
+@media only screen and (max-width: $width-3) {
+    .logo {
+        height: 10rem;
+    }
 
-            & > * {
-                width: 12rem;
-                height: 12rem;
-            }
+    .events-header {
+        margin-top: 8rem;
+    }
+
+    .container {
+        position: absolute;
+        top: $spacing-64;
+        left: 50%;
+        transform: translateX(-50%);
+        right: 0;
+    }
+
+    .loadingSpinner {
+        transform: rotate(90deg);
+        height: 5rem;
+        animation: loadingSpinnerAnimation 1600ms ease-in-out forwards;
+        animation-delay: 400ms;
+    }
+
+    @keyframes loadingSpinnerAnimation {
+        100% {
+            transform: rotate(810deg);
         }
     }
-}
 
-@media only screen and (max-width: $width-3) {
-    #intro {
-        .logo {
-            height: 8rem;
-            margin-top: $spacing-96;
-        }
+    .logo-text {
+        height: 18px;
+        margin-right: 16px;
+        animation: textAnimation 400ms ease-out forwards;
+        animation-delay: 1800ms;
+    }
 
-        .row {
-            justify-content: center;
-        }
-
-        .menu {
-            display: none;
+    @keyframes textAnimation {
+        100% {
+            margin-right: -10px;
+            margin-left: 10px;
         }
     }
 }

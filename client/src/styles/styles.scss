@@ -94,9 +94,8 @@ h4 {
 /**
  * Spacing for content
  */
-$spacing-left-right: calc((100vw - 177vh) / 2);
 section {
-    padding: $spacing-64 max($spacing-64, $spacing-left-right);
+    padding: $spacing-64 var(--dynamic-vertical-spacing);
     width: 100%;
     height: 100vh;
     display: flex;
@@ -109,10 +108,6 @@ section {
 }
 
 @media only screen and (max-height: $height-1) {
-    section {
-        padding: $spacing-48 max($spacing-48, $spacing-left-right);
-    }
-
     .section-content {
         padding: $spacing-96 $spacing-48 $spacing-48 $spacing-96;
     }

@@ -1,5 +1,5 @@
 <div class="card">
-    <h2>Mattley ({{ "home.others.legalNotice.title" | translate }})<br /></h2>
+    <h2>{{ "home.others.legalNotice.title" | translate }}</h2>
     <h3>{{ "home.others.legalNotice.representedBy" | translate }}</h3>
     <p>Matthias Schmid <br /></p>
     <h3>{{ "home.others.legalNotice.postalAddress" | translate }}</h3>
@@ -8,15 +8,11 @@
         89155 Erbach
     </p>
     <h3>{{ "home.others.legalNotice.contact" | translate }}</h3>
-    <p>{{ "home.others.legalNotice.email" | translate }}: contact@mattleymusic.de</p>
+    <p>
+        {{ "home.others.legalNotice.email" | translate }}:
+        <a href="mailto:contact@mattleymusic.de" class="email-link"> contact@mattleymusic.de </a>
+    </p>
 
-
-    <div class="bottom-wrapper">
-        <h3 routerLink="/privacy-policy">{{"privacyPolicy.title" | translate}}</h3>
-        <app-button
-            text="privacyPolicy.clickHere"
-            routerLink="/privacy-policy"
-            color="white"
-        ></app-button>
-    </div>
+    <h3 routerLink="/privacy-policy">{{ "privacyPolicy.title" | translate }}</h3>
+    <app-button text="privacyPolicy.clickHere" routerLink="/privacy-policy" color="white"></app-button>
 </div>

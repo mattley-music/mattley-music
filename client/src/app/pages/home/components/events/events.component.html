@@ -1,49 +1,19 @@
 <div class="card">
-    <div *ngIf="!showAllEvents">
-        <div *ngFor="let event of events.slice(0, 3)" class="event-list">
-            <table>
-                <colgroup>
-                    <col style="width: 12%;">
-                    <col style="width: 88%;">
-                </colgroup>
-                <tbody>
-                    <tr class="row-top">
-                        <td class="day"> {{ event.start | date: 'dd' }} </td>
-                        <td class="title"> {{ event.summary }} </td>
-                    </tr>
-
-                    <tr class="row-bot">
-                        <td class="month"> {{ event.start | date: 'MMM yyyy' }} </td>
-                        <td class="description"> {{ event.description }} </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div *ngIf="showAllEvents">
-       <div *ngFor="let event of events" class="event-list">
-            <table>
-                <colgroup>
-                    <col style="width: 12%;">
-                    <col style="width: 88%;">
-                </colgroup>
-                <tbody>
-                    <tr class="row-top">
-                        <td class="day"> {{ event.start | date: 'dd' }} </td>
-                        <td class="title"> {{ event.summary }} </td>
-                    </tr>
-
-                    <tr class="row-bot">
-                        <td class="month"> {{ event.start | date: 'MMM yyyy' }} </td>
-                        <td class="description"> {{ event.description }} </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="bottom-wrapper">
-        <app-button [onClick]="toggleEvents" color="purple" [text]="!showAllEvents ? 'home.events.morebutton' : 'home.events.lessbutton'"></app-button>
+    <div class="event-list">
+        <ng-container *ngFor="let event of events; let i = index">
+            <ng-container *ngIf="showAllEvents || i < 3">
+                <div class="day">{{ event.start | date: "dd" }}</div>
+                <div class="title">{{ event.summary }}</div>
+                <div class="month">{{ event.start | date: "MMM yyyy" }}</div>
+                <div class="description">{{ event.description }}</div>
+            </ng-container>
+        </ng-container>
+        <div></div>
+        <app-button
+            class="more-events"
+            [onClick]="toggleEvents"
+            color="purple"
+            [text]="!showAllEvents ? 'home.events.moreButton' : 'home.events.lessButton'"
+        ></app-button>
     </div>
 </div>

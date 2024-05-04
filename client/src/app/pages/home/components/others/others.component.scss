@@ -16,21 +16,27 @@
         margin-right: 0;
     }
 
-    .bottom-wrapper {
-        position: absolute;
-        bottom: 40px;
+    h3,
+    p {
+        margin-top: $spacing-16;
+        margin-bottom: $spacing-8;
+        color: $white;
     }
-}
 
-h3, p {
-    margin-top: $spacing-8;
-    margin-bottom: $spacing-8;
-    color: $white;
-}
+    h3 {
+        font-size: 1rem;
+        text-transform: uppercase;
+    }
 
-h2 {
-    font-size: 40px;
-    color: $white;
+    h2 {
+        color: $white;
+        margin-bottom: $spacing-24;
+    }
+
+    .email-link {
+        color: white;
+        text-decoration: underline;
+    }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -39,6 +45,8 @@ h2 {
     }
 
     .card {
+        width: 100%;
+        max-width: 100%;
         margin-right: 0;
         margin-bottom: $spacing-32;
 
