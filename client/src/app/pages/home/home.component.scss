@@ -173,6 +173,13 @@
     }
 }
 
+@media only screen and (max-width: $width-2) {
+    .events-header {
+        margin-top: 8rem;
+    }
+}
+
+
 @media print {
 
     .background {
