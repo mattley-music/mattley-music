@@ -10,7 +10,6 @@
     flex: 1 1 auto;
     padding: $spacing-32;
     margin-right: $spacing-32;
-    overflow: auto;
 
     &:last-child {
         margin-right: 0;
@@ -24,13 +23,13 @@
     }
 
     h3 {
-        font-size: 1rem;
+        font-size: 0.9rem;
         text-transform: uppercase;
     }
 
     h2 {
         color: $white;
-        margin-bottom: $spacing-24;
+        margin-bottom: $spacing-16;
     }
 
     .email-link {

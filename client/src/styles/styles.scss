@@ -123,7 +123,7 @@ section {
     }
 }
 
-@media only screen and (max-width: $width-2) {
+@media only screen and (max-width: $width-2), print {
     section {
         padding: $spacing-64 $spacing-48;
         flex-direction: column;
@@ -142,5 +142,11 @@ section {
 
     .section-content {
         padding: $spacing-24 0;
+    }
+}
+
+@media print {
+    body {
+        height: 100vh;
     }
 }

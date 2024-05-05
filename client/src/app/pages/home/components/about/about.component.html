@@ -26,14 +26,19 @@
         </app-about-info>
         <app-about-info [right]="true" [height]="-150" description="{{ 'home.about.socials' | translate }}">
             <div class="socials">
-                <a href="https://www.youtube.com/channel/UCg3I-WMBf9B-esRndLKx17g" target="_blank">
-                    <svg>
-                        <use xlink:href="assets/img/icons.svg#youtube"></use>
-                    </svg>
-                </a>
                 <a href="https://www.instagram.com/mattleymusic/" target="_blank">
                     <svg>
-                        <use xlink:href="assets/img/icons.svg#instagram"></use>
+                        <use class="instagram" xlink:href="assets/img/icons.svg#instagram"></use>
+                    </svg>
+                </a>
+                <a href="https://www.youtube.com/channel/UCg3I-WMBf9B-esRndLKx17g" target="_blank">
+                    <svg>
+                        <use class="youtube" xlink:href="assets/img/icons.svg#youtube"></use>
+                    </svg>
+                </a>
+                <a href="https://soundcloud.com/mattleydj" target="_blank">
+                    <svg class="soundcloud-svg">
+                        <use class="soundcloud" xlink:href="assets/img/icons.svg#soundcloud"></use>
                     </svg>
                 </a>
                 <a href="https://www.twitch.tv/mattleymusic" target="_blank">

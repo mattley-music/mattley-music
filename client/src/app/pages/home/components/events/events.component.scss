@@ -28,9 +28,7 @@
         text-align: left;
     }
 
-    .month,
-    .description,
-    .title {
+    .month, .description, .title {
         color: $white;
         font-weight: 600;
         text-shadow: 0 0 50px $black;
@@ -55,6 +53,61 @@
     .more-events {
         margin-top: $spacing-24;
     }
+}
+
+.print-event-list {
+    display: none;
+}
+
+
+@media print {
+    .event-list {
+        display: none;
+    }
+
+    .print-event-list {
+        display: grid;
+        grid-template-columns: auto 1fr;
+
+        .day,
+        .month {
+            text-align: right;
+            padding-right: $spacing-24;
+        }
+
+        .description,
+        .title {
+            text-align: left;
+        }
+
+        .month, .description {
+            font-size: 1.4rem;
+        }
+
+        .month, .description, .title {
+            color: $white;
+            font-weight: 600;
+            text-shadow: 0 0 50px $black;
+        }
+
+        .day {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: $purple;
+        }
+
+        .month {
+            color: $white;
+            margin-bottom: $spacing-24;
+            white-space: nowrap;
+        }
+
+        .title {
+            font-size: 2.2rem;
+            align-self: end;
+        }
+    }
+
 }
 
 @media only screen and (max-width: $width-3) {

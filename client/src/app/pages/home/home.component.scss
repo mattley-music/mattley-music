@@ -23,9 +23,13 @@
     animation: backgroundAnimation 2000ms ease-in-out forwards;
 }
 
+.print-background {
+    display: none;
+}
+
 @keyframes backgroundAnimation {
     100% {
-        filter: grayscale(0.9);
+        filter: grayscale(0.9) brightness(85%);
     }
 }
 
@@ -35,11 +39,6 @@
     right: var(--dynamic-vertical-spacing);
     display: flex;
     align-items: center;
-}
-
-@media only screen and (max-width: $width-2) {
-    .background {
-    }
 }
 
 .loadingSpinner {
@@ -57,7 +56,7 @@
 }
 
 .logo-text {
-    height: 20px;
+    height: 1.8rem;
     margin-right: 25px;
     animation: textAnimation 400ms ease-out forwards;
     animation-delay: 1800ms;
@@ -132,10 +131,7 @@
     background: $purple;
 }
 
-@media only screen and (max-width: $width-3) {
-    .logo {
-        height: 10rem;
-    }
+@media only screen and (max-width: $width-3), print {
 
     .events-header {
         margin-top: 8rem;
@@ -175,4 +171,71 @@
             margin-left: 10px;
         }
     }
+}
+
+@media print {
+
+    .background {
+        display: none;
+    }
+
+    .print-background {
+        display: initial;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        object-fit: cover;
+
+        filter: grayscale(0.8) brightness(30%);
+    }
+
+    .container {
+        position: absolute;
+        top: $spacing-64;
+        left: 50%;
+        transform: translateX(-50%);
+        right: 0;
+    }
+
+    .logo-text {
+        height: 2rem;
+        margin-right: -1rem;
+    }
+
+    .loadingSpinner {
+        height: 6.4rem;
+        margin-left: -1rem;
+    }
+
+    #intro {
+        visibility: hidden;
+    }
+
+    #about {
+        visibility: hidden;
+    }
+
+    #youtube {
+        visibility: hidden;
+    }
+
+    #clothes {
+        visibility: hidden;
+    }
+
+    #gallery {
+        visibility: hidden;
+    }
+
+    #spotify {
+        visibility: hidden;
+    }
+
+    #others {
+        visibility: hidden;
+    }
+
 }
