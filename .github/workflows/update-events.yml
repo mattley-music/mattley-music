@@ -1,6 +1,7 @@
 name: update the assets-folder in gh-pages branch
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 0 * * *"  # This cron schedule runs the workflow every day at midnight UTC
 
@@ -10,5 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2 
+    
       - name: Run script
         run: npm run get-events
