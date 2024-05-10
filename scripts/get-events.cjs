@@ -1,4 +1,3 @@
-// scripts/example.js
 console.log("Hello from the example JavaScript script!");
 
 const { google } = require('googleapis');
