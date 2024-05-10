@@ -1,18 +1,35 @@
-name: update the assets-folder in gh-pages branch
+name: update the assets folder in gh-pages branch
+
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 0 * * *"  # This cron schedule runs the workflow every day at midnight UTC
+  # schedule:
+  #  - cron: "0 0 * * *"  # This cron schedule runs the workflow every day at midnight UTC
+    inputs:
+      script:
+        description: "get-events"
+        required: true
+        default: "get-events" # Adjust this default value based on your script's name
+      node_version:
+        description: "v20.11.0"
+        required: true
+        default: "16"
 
 jobs:
-  run-eventgetter-and-copy:
-    name: Get events and copy them to assets
+  run_script:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2 
-    
-      - name: Run script
-        run: npm run get-events
+      - name: Check out the repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ github.event.inputs.node_version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run JavaScript Script
+        run: node scripts/${{ github.event.inputs.script }}.js
