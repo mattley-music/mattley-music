@@ -14,7 +14,7 @@ export class EventsComponent implements OnInit {
     constructor(private http: HttpClient) {}
 
     ngOnInit(): void {
-        this.http.get<any[]>("assets/data/upcoming-events.json").subscribe((data) => {
+        this.http.get<any[]>(`assets/data/upcoming-events.json?prevent-cache=${Date.now()}`).subscribe((data) => {
             this.events = data;
         });
     }
