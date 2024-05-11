@@ -1,0 +1,61 @@
+{
+    "home": {
+        "intro": {
+            "nothingUpcoming": "Kein Event Geplant"
+        },
+        "events": {
+            "title": "Events",
+            "moreButton": "Mehr Events",
+            "lessButton": "Weniger Events"
+        },
+        "about": {
+            "title": "About Me",
+            "what": "Was spiele ich?",
+            "music": "House, Dance & Hip Hop",
+            "whatNot": "Was spiele ich nicht?",
+            "musicNot": "Schlager",
+            "location": "Standort",
+            "ulm": "In Ulm und um Ulm herum",
+            "whoAmI": "Wer bin ich?",
+            "matze": "Matze ({{age}})",
+            "socials": "Socials"
+        },
+        "youtube": {
+            "title": "In The Mix"
+        },
+        "clothes": {
+            "title": "Kleidung",
+            "shirt": "Mattley Shirt",
+            "description": "Die Rohlinge sind aus 100% Baumwolle und stammen von Stanley/Stella. Damit sind sie zertifiziert von \"Fair Wear\", \"GRS\", \"GOTS\" und natürlich frei von irgendwelchen tierischen Produkten. Bedruckt wurden die Shirts im Landkreis Biberach, also alles lokal vom Feinsten.",
+            "cotton": "100% Baumwolle",
+            "order": "Bock auf eins?",
+            "subject": "T-Shirt Bestellung",
+            "body": "Yo Matze ✌ \n\nIch hätte gerne ein MATTLEY Shirt!\n\nHast du noch eins in der Größe {{selectedSize}}?\n\nENTWEDER - Ich würde das T-Shirt selbst abholen. (23 Euro)\n\nODER - Könntest du mir das T-Shirt schicken? (26 Euro)\n\nViele Grüße"
+        },
+        "gallery": {
+            "title": "Galerie"
+        },
+        "spotify": {
+            "title": "Playlists"
+        },
+        "others": {
+            "title": "Sonstiges",
+            "upcomingEvents": {
+                "title": "Upcoming Events",
+                "nothing": "Aktuell sind keine Events geplant :("
+            },
+            "legalNotice": {
+                "title": "Impressum",
+                "representedBy": "Verteten durch",
+                "postalAddress": "Postanschrift",
+                "contact": "Kontakt",
+                "email": "E-Mail",
+                "back": "Zurück"
+            }
+        }
+    },
+    "privacyPolicy": {
+        "title": "Datenschutzerklärung",
+        "clickHere": "Hier klicken ..."
+    }
+}
