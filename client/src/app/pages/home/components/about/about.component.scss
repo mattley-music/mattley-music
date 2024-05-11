@@ -45,6 +45,8 @@
 
     .socials {
         display: flex;
+        justify-content: center;
+        align-items: center;
 
         &>* {
             cursor: pointer;
@@ -52,11 +54,16 @@
             svg {
                 width: $spacing-24;
                 height: $spacing-24;
-                margin-left: $spacing-16;
+                margin-left: $spacing-16;display: flex;
+            }
+
+            .soundcloud-svg {
+                width: $spacing-32;
+                height: $spacing-32;
             }
         }
 
-        .twitch {
+        .instagram, .youtube, .soundcloud, .twitch {
             fill: $purple;
         }
     }

@@ -1,1 +1,2 @@
-<a [attr.href]="href" class="button {{ color }}">{{ text | translate }}</a>
+<a *ngIf="href || routerLink" [attr.routerLink]="routerLink" [attr.href]="href" class="button {{ color }}">{{ text | translate }}</a>
+<button *ngIf="onClick" (click)="onClick?.()" class="button {{ color }}">{{ text | translate }}</button>

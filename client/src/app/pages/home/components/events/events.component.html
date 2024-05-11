@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="event-list">
+        <ng-container *ngFor="let event of events; let i = index">
+            <ng-container *ngIf="showAllEvents || i < 3">
+                <div class="day">{{ event.start | date: "dd" }}</div>
+                <div class="title">{{ event.summary }}</div>
+                <div class="month">{{ event.start | date: "MMM yyyy" }}</div>
+                <div class="description">{{ event.description }}</div>
+            </ng-container>
+        </ng-container>
+        <div></div>
+        <app-button
+            class="more-events"
+            [onClick]="toggleEvents"
+            color="purple"
+            [text]="!showAllEvents ? 'home.events.moreButton' : 'home.events.lessButton'"
+        ></app-button>
+    </div>
+
+    <div class="print-event-list">
+        <ng-container *ngFor="let event of events; let i = index">
+            <ng-container *ngIf="showAllEvents || i < 5">
+                <div class="day">{{ event.start | date: "dd" }}</div>
+                <div class="title">{{ event.summary }}</div>
+                <div class="month">{{ event.start | date: "MMM yyyy" }}</div>
+                <div class="description">{{ event.description }}</div>
+            </ng-container>
+        </ng-container>
+        <div></div>
+    </div>
+
+
+</div>

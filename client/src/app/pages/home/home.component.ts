@@ -10,7 +10,7 @@ export class HomeComponent {
     /**
      * The shown sections
      */
-    private sections = ["about", "youtube", "clothes", "gallery", "spotify", "others"];
+    private sections = ["events", "about", "youtube", "clothes", "gallery", "spotify", "others"];
     /**
      * The timeout reference for the scroll snapping
      */
@@ -29,9 +29,9 @@ export class HomeComponent {
     /**
      * Scroll into a section
      */
-    public scrollTo(section: string): void {
+    public scrollTo(section: string, behavior: ScrollBehavior = "smooth"): void {
         const element = document.getElementById(section);
-        if (element) element.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (element) element.scrollIntoView({ behavior: behavior, block: "start" });
     }
 
     /**

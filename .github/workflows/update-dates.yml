@@ -1,0 +1,30 @@
+name: Update events
+
+on:
+    schedule:
+        - cron: "0 2 * * *" # run at 2 AM UTC
+    workflow_run:
+        workflows: ["Deploy to github pages (main)"]
+        types:
+            - completed
+jobs:
+    run-script:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  path: "code"
+            - run: npm ci
+              working-directory: "code"
+            - uses: actions/checkout@v2
+              with:
+                  path: "gh-pages"
+            - uses: actions/setup-node@v2
+              with:
+                  node-version: 20
+            - name: Run Script
+              working-directory: "code"
+              run: node ./scripts/get-events.js
+              env:
+                  JSON_CREDENTIALS: ${{ secrets.EVENTS_SECRET }}

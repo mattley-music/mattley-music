@@ -1,23 +1,24 @@
-<!-- The intro -->
-<section id="intro">
-    <img class="background" src="assets/img/intro.png" alt="Intro" />
-    <div class="row">
-        <img class="logo" src="assets/img/logo.svg" alt="Logo" />
-        <div class="menu">
-            <a (click)="scrollTo('about')">{{ "home.about.title" | translate }}</a>
-            <a (click)="scrollTo('youtube')">{{ "home.youtube.title" | translate }}</a>
-            <a (click)="scrollTo('clothes')">{{ "home.clothes.title" | translate }}</a>
-            <a (click)="scrollTo('gallery')">{{ "home.gallery.title" | translate }}</a>
-            <a (click)="scrollTo('spotify')">{{ "home.spotify.title" | translate }}</a>
-        </div>
+<img class="background" src="assets/img/intro.jpeg" alt="Intro" />
+<img class="print-background" src="assets/img/intro.jpeg" alt="Intro-print" />
+
+<div class="container">
+    <img class="logo-text" src="assets/img/mattley.svg" alt="Logo-text" />
+    <img class="loadingSpinner" src="assets/img/loading-spinner.svg" alt="Logo" />
+</div>
+
+<section id="intro"></section>
+
+<!-- Events -->
+<section id="events">
+    <app-section-header class="events-header" text="home.events.title" color="white"></app-section-header>
+
+    <div class="section-content events-content">
+        <app-events (scrollToEvents)="scrollTo('events', 'auto')"></app-events>
     </div>
 </section>
 
 <!-- About me -->
 <section id="about">
-    <div class="news-spinner">
-        <app-news-spinner (click)="scrollTo('others')"></app-news-spinner>
-    </div>
     <app-section-header text="home.about.title"></app-section-header>
     <div class="section-content">
         <app-about></app-about>

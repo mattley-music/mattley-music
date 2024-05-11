@@ -1,0 +1,123 @@
+@import "vars";
+
+:host {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+}
+
+.card {
+    flex: 1 1 auto;
+    padding: $spacing-32;
+    margin-right: $spacing-32;
+    overflow: auto;
+}
+
+.event-list {
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    .day,
+    .month {
+        text-align: right;
+        padding-right: $spacing-24;
+    }
+
+    .description,
+    .title {
+        text-align: left;
+    }
+
+    .month, .description, .title {
+        color: $white;
+        font-weight: 600;
+        text-shadow: 0 0 50px $black;
+    }
+
+    .day {
+        font-size: 40px;
+        font-weight: 800;
+        color: $purple;
+    }
+
+    .month {
+        color: $white;
+        margin-bottom: $spacing-24;
+    }
+
+    .title {
+        font-size: 35px;
+        align-self: end;
+    }
+
+    .more-events {
+        margin-top: $spacing-24;
+    }
+}
+
+.print-event-list {
+    display: none;
+}
+
+
+@media print {
+    .event-list {
+        display: none;
+    }
+
+    .print-event-list {
+        display: grid;
+        grid-template-columns: auto 1fr;
+
+        .day,
+        .month {
+            text-align: right;
+            padding-right: $spacing-24;
+        }
+
+        .description,
+        .title {
+            text-align: left;
+        }
+
+        .month, .description {
+            font-size: 1.4rem;
+        }
+
+        .month, .description, .title {
+            color: $white;
+            font-weight: 600;
+            text-shadow: 0 0 50px $black;
+        }
+
+        .day {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: $purple;
+        }
+
+        .month {
+            color: $white;
+            margin-bottom: $spacing-24;
+            white-space: nowrap;
+        }
+
+        .title {
+            font-size: 2.2rem;
+            align-self: end;
+        }
+    }
+
+}
+
+@media only screen and (max-width: $width-3) {
+    .event-list {
+        .day {
+            font-size: 28px;
+        }
+
+        .title {
+            font-size: 25px;
+        }
+    }
+}

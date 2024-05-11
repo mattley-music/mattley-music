@@ -5,6 +5,8 @@
 }
 
 .button {
+    outline: none;
+    border: none;
     display: flex;
     padding: $spacing-8 $spacing-24;
     text-transform: uppercase;
@@ -18,5 +20,17 @@
 
     &.purple {
         background: $purple;
+    }
+
+    &.white {
+        color: $purple;
+        background: $white;
+    }
+}
+
+@media only screen and (max-width: $width-3) {
+    .button {
+        font-size: 18px;
+        font-weight: 600;
     }
 }
