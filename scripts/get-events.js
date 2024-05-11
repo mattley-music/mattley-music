@@ -13,7 +13,6 @@ const pushEventFile = async () => {
         const cwd = "../gh-pages";
         await execa("git", ["config", "user.name", "Matthisbot"], { cwd });
         await execa("git", ["config", "user.email", "contact@mattleymusic.de"], { cwd });
-        await execa("git", ["checkout", "origin/gh-pages"], { cwd });
         await execa("git", ["add", "--all"], { cwd });
         await execa("git", ["commit", "-m", "update events"], { cwd });
         console.log("Pushing to gh-pages...");
