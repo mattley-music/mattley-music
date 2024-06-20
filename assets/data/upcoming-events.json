@@ -10,8 +10,23 @@
     "description": "Open Air - Uni West Ulm"
   },
   {
-    "start": "2024-07-13T09:00:00+02:00",
+    "start": "2024-07-06T19:00:00+02:00",
     "summary": "Rollerdisco",
-    "description": "Donaubad - Neu-Ulm "
+    "description": "Donaubad Neu-Ulm"
+  },
+  {
+    "start": "2024-07-13T22:00:00+02:00",
+    "summary": "Gleis Sommerfest Afterparty",
+    "description": "Gleis 44 - Ulm"
+  },
+  {
+    "start": "2024-07-19T22:00:00+02:00",
+    "summary": "Schwör mal Afterparty",
+    "description": "Cocomo Ulm"
+  },
+  {
+    "start": "2024-07-22T22:00:00+02:00",
+    "summary": "Schwörmontag",
+    "description": "Gleis 44 - Ulm"
   }
 ]
