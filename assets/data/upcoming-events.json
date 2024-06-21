@@ -28,5 +28,10 @@
     "start": "2024-07-22T22:00:00+02:00",
     "summary": "Schwörmontag",
     "description": "Gleis 44 - Ulm"
+  },
+  {
+    "start": "2024-07-26T09:00:00+02:00",
+    "summary": "2nd Floor - Smoker",
+    "description": "Cocomo - Ulm"
   }
 ]
