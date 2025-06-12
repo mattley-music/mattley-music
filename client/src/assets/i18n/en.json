@@ -10,12 +10,12 @@
         },
         "about": {
             "title": "About Me",
-            "what": "What am I playing?",
-            "music": "House, Dance & Hip Hop",
+            "what": "What Music do I play?",
+            "music": "House, Trance,  D&B",
             "whatNot": "What am I not playing?",
             "musicNot": "Schlager",
             "location": "Location",
-            "ulm": "In Ulm and around Ulm",
+            "ulm": "Ulm",
             "whoAmI": "Who am I?",
             "matze": "Matze ({{age}})",
             "socials": "Socials"

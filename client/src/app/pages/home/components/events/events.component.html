@@ -10,6 +10,7 @@
         </ng-container>
         <div></div>
         <app-button
+            *ngIf="events.length >= 4"
             class="more-events"
             [onClick]="toggleEvents"
             color="purple"
