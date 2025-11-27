@@ -9,21 +9,13 @@ import Glide from "@glidejs/glide";
 })
 export class GalleryComponent implements AfterViewInit {
     /**
-     * The value for the selected image if video is selected
+     * The images that are shown in the gallery
      */
-    public readonly video = 6;
-    /**
-     * The images that are shown besides the video
-     */
-    public readonly images = [0, 1, 2, 3, 4, 5];
+    public readonly images = [0, 1, 2, 3, 4, 5, 6];
     /**
      * True if the fullscreen is shown
      */
     public $showFullscreen = new BehaviorSubject<boolean>(false);
-    /**
-     * The preview video player (required for animation)
-     */
-    private previewVideoPlayer?: HTMLVideoElement;
     /**
      * GlideJS instance
      */
@@ -69,15 +61,8 @@ export class GalleryComponent implements AfterViewInit {
     /**
      * React to fullscreen toggles
      */
-    private onFullscreenToggle = async (showGallery: boolean): Promise<void> => {
+    private onFullscreenToggle = (showGallery: boolean): void => {
         // Enable/Disable scrolling
         document.documentElement.style.overflow = showGallery ? "hidden" : "auto";
-
-        // Pause all videos and start/pause the preview depending on the state
-        const videos = document.getElementsByTagName("video");
-        for (let i = 0; i < videos.length; i++) {
-            await videos[i]?.pause();
-        }
-        showGallery ? await this.previewVideoPlayer?.pause() : await this.previewVideoPlayer?.play();
     };
 }

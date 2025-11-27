@@ -7,18 +7,6 @@
         (click)="openGallery(image)"
     />
 </div>
-<div id="video-preview" class="preview">
-    <video
-        id="preview-video-player"
-        loop
-        autoplay
-        playsinline
-        (click)="openGallery(video)"
-        [muted]="'muted'"
-    >
-        <source src="assets/img/gallery/video.mp4" type="video/mp4" />
-    </video>
-</div>
 <div [style.display]="$showFullscreen.value ? 'block' : 'none'" class="image-overlay">
     <div class="gallery-glider glide">
         <div class="glide__track" data-glide-el="track">
@@ -29,9 +17,6 @@
                     src="assets/img/gallery/{{ image }}.jpg"
                     alt="Big Image"
                 />
-                <video  id="big-video-player" controls>
-                    <source src="assets/img/gallery/video.mp4" type="video/mp4" />
-                </video>
             </ul>
         </div>
         <div class="glide__arrows" data-glide-el="controls">
@@ -44,7 +29,6 @@
                 class="glide__bullet"
                 [attr.data-glide-dir]="'=' + i"
             ></button>
-            <button class="glide__bullet" [attr.data-glide-dir]="'=' + video"></button>
         </div>
     </div>
     <span class="fullscreen-close" (click)="$showFullscreen.next(false)">X</span>

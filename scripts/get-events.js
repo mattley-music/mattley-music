@@ -14,6 +14,14 @@ const pushEventFile = async () => {
         await execa("git", ["config", "user.name", "Matthisbot"], { cwd });
         await execa("git", ["config", "user.email", "contact@mattleymusic.de"], { cwd });
         await execa("git", ["add", "--all"], { cwd });
+        
+        // Check if there are any changes to commit
+        const { stdout: statusOutput } = await execa("git", ["status", "--porcelain"], { cwd });
+        if (!statusOutput.trim()) {
+            console.log("No changes to commit, skipping push.");
+            return;
+        }
+        
         await execa("git", ["commit", "-m", "update events"], { cwd });
         console.log("Pushing to gh-pages...");
         await execa("git", ["push", "origin", "HEAD:gh-pages", "--force"], { cwd });
