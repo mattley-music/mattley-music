@@ -12,6 +12,14 @@ export class SpotifyComponent implements AfterViewInit {
      * The playlists that shall be shown
      */
     public readonly playlists = ["playlist1", "playlist2", "playlist3", "playlist4", "playlist5"];
+    /**
+     * Track which iframes have been loaded
+     */
+    public loadedIframes: boolean[] = [true, false, false, false, false];
+    /**
+     * Pre-computed Spotify URLs (to avoid function calls in template)
+     */
+    public spotifyUrls: string[] = [];
 
     /**
      * Constructor
@@ -19,17 +27,21 @@ export class SpotifyComponent implements AfterViewInit {
     constructor(private contentService: ContentService) {}
 
     /**
-     * Get the spotify link for given playlist
+     * Compute Spotify URLs after content is loaded
      */
-    public getSpotifyLink(key: string): string {
-        return `https://open.spotify.com/embed/playlist/${this.contentService.content[key]}?utm_source=generator&theme=0`;
+    private computeSpotifyUrls(): void {
+        this.spotifyUrls = this.playlists.map(
+            (key) => `https://open.spotify.com/embed/playlist/${this.contentService.content[key]}?utm_source=generator&theme=0`
+        );
     }
 
     /**
      * Initialize the carousel
      */
     public ngAfterViewInit(): void {
-        new Glide(".spotify-glider", {
+        // Compute Spotify URLs once
+        this.computeSpotifyUrls();
+        const glide: any = new Glide(".spotify-glider", {
             type: "carousel",
             startAt: 0,
             perView: 1,
@@ -39,5 +51,13 @@ export class SpotifyComponent implements AfterViewInit {
             gap: 16,
             focusAt: "center",
         }).mount();
+
+        // Load iframes as user navigates
+        glide.on("run", () => {
+            const nextIndex = glide.index;
+            if (!this.loadedIframes[nextIndex]) {
+                this.loadedIframes[nextIndex] = true;
+            }
+        });
     }
 }

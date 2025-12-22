@@ -5,6 +5,7 @@
         class="img-responsive"
         src="assets/img/gallery/small/{{ image }}.jpg"
         (click)="openGallery(image)"
+        loading="lazy"
     />
 </div>
 <div [style.display]="$showFullscreen.value ? 'block' : 'none'" class="image-overlay">
@@ -14,8 +15,9 @@
                 <img
                     *ngFor="let image of images"
                     draggable="false"
-                    src="assets/img/gallery/{{ image }}.jpg"
+                    [src]="$showFullscreen.value ? 'assets/img/gallery/' + image + '.jpg' : ''"
                     alt="Big Image"
+                    loading="lazy"
                 />
             </ul>
         </div>

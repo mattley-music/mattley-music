@@ -19,11 +19,19 @@
     z-index: -1;
     object-fit: cover;
 
-    filter: grayscale(0.9) brightness(85%);
+    filter: grayscale(0);
+    animation: backgroundAnimation 2000ms ease-in-out forwards;
+    will-change: filter;
 }
 
 .print-background {
     display: none;
+}
+
+@keyframes backgroundAnimation {
+    100% {
+        filter: grayscale(0.9) brightness(85%);
+    }
 }
 
 .container {
@@ -40,6 +48,7 @@
     height: 7rem;
     animation: loadingSpinnerAnimation 1600ms ease-in-out forwards;
     animation-delay: 400ms;
+    will-change: transform;
 }
 
 @keyframes loadingSpinnerAnimation {
@@ -53,6 +62,7 @@
     margin-right: 25px;
     animation: textAnimation 400ms ease-out forwards;
     animation-delay: 1800ms;
+    will-change: margin-right;
 }
 
 @keyframes textAnimation {
@@ -66,6 +76,7 @@
     animation: introAnimation 1600ms ease-in-out forwards;
     animation-delay: 700ms;
     padding: 0;
+    will-change: height;
 }
 
 @keyframes introAnimation {
@@ -142,6 +153,7 @@
         height: 5rem;
         animation: loadingSpinnerAnimation 1600ms ease-in-out forwards;
         animation-delay: 400ms;
+        will-change: transform;
     }
 
     @keyframes loadingSpinnerAnimation {
@@ -155,6 +167,7 @@
         margin-right: 16px;
         animation: textAnimation 400ms ease-out forwards;
         animation-delay: 1800ms;
+        will-change: margin-right, margin-left;
     }
 
     @keyframes textAnimation {

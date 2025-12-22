@@ -17,8 +17,6 @@ import { OthersComponent } from "./pages/home/components/others/others.component
 import { GalleryComponent } from "./pages/home/components/gallery/gallery.component";
 import { SpotifyComponent } from "./pages/home/components/spotify/spotify.component";
 import { SafePipe } from "./pipes/safe.pipe";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import gsap from "gsap";
 import localeDe from "@angular/common/locales/de";
 import dayjs from "dayjs";
 import { PrivacyPolicyComponent } from "./pages/privacy-policy/privacy-policy.component";
@@ -33,9 +31,6 @@ registerLocaleData(localeDe);
 // const availableLanguages = ["de", "en"];
 let browserLanguage = "de"; // navigator.language.split("-")[0];
 // if (!availableLanguages.includes(browserLanguage)) browserLanguage = "en";
-
-// GSAP Plugins
-gsap.registerPlugin(ScrollTrigger);
 
 @NgModule({
     declarations: [

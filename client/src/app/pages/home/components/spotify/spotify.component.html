@@ -1,12 +1,14 @@
 <div class="spotify-glider glide">
     <div class="glide__track" data-glide-el="track">
         <ul class="glide__slides playlists">
-            <div class="playlist" *ngFor="let playlist of playlists">
+            <div class="playlist" *ngFor="let playlist of playlists; let i = index">
                 <iframe
-                    [src]="getSpotifyLink(playlist) | safe"
+                    *ngIf="loadedIframes[i] && spotifyUrls[i]"
+                    [src]="spotifyUrls[i] | safe"
                     frameBorder="0"
                     allowfullscreen=""
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
                 ></iframe>
             </div>
         </ul>

@@ -23,7 +23,7 @@ export class HomeComponent {
         document.addEventListener("scroll", () => {
             clearTimeout(this.scrollTimeout);
             this.scrollTimeout = setTimeout(this.scrollToSection, 1000);
-        });
+        }, { passive: true });
     }
 
     /**
