@@ -10,6 +10,11 @@
     "description": "Gleis 44 - Ulm"
   },
   {
+    "start": "2026-02-23T22:00:00+01:00",
+    "summary": "Medi Closing",
+    "description": "Eins Tiefer - Ulm"
+  },
+  {
     "start": "2026-02-25T22:00:00+01:00",
     "summary": "Halbzeit",
     "description": "Club Frau Berger - Ulm"
