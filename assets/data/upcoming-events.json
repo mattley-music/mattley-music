@@ -3,5 +3,25 @@
     "start": "2026-07-02T20:00:00+02:00",
     "summary": "SONAFE",
     "description": "Universität Ulm"
+  },
+  {
+    "start": "2026-07-20T22:00:00+02:00",
+    "summary": "Schwörmontag Gleis 44",
+    "description": "Gleis 44 | Ulm"
+  },
+  {
+    "start": "2026-07-25T16:00:00+02:00",
+    "summary": "Semester Closing HNU",
+    "description": "Liederkranz | Ulm"
+  },
+  {
+    "start": "2026-07-25T22:00:00+02:00",
+    "summary": "Semester Closing Afterparty",
+    "description": "Gleis 44 | Ulm"
+  },
+  {
+    "start": "2026-07-29T18:30:00+02:00",
+    "summary": "Runclub x Liederkranz",
+    "description": "Liederkranz | Ulm"
   }
 ]
